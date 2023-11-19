@@ -102,7 +102,7 @@ ae2f_Map_pop(&a);
 
 ## void ae2f_Map_free(struct ae2f_Map* _this); <d id="free"></d>
 will reset this map `_this`.
-```
+```c
 struct ae2f_Map a; ae2f_Map_init(&a);
 struct ae2f_Pair p = {
 	ae2f_Dynamic_init_("Hello World!", 15),
