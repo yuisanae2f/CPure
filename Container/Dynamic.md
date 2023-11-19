@@ -1,4 +1,4 @@
-﻿# <a href="../Container.md">ae2f</a>_Dynamic
+﻿# <a href="../Container.md#Dynamic">ae2f</a>_Dynamic
 ```c
 struct ae2f_Dynamic {
 	void* c;		// allocator
@@ -41,12 +41,23 @@ struct ae2f_Dynamic a = ae2f_Dynamic_init_("Hello World!", 13);
 a = ae2f_Dynamic_re(&a, 30);
 ```
 
+## void ae2f_Dynamic_re_(struct ae2f_Dynamic* _this, void* arr, unsigned long long len);
+sets the dynamic `_this`s' c the value of `arr`.
+
 ## void ae2f_Dynamic_free(struct ae2f_Dynamic* _this);
 will end the allocation of the given structure `_this` and set its length `_this.len` to zero.  
 must be done on the end of the code.
 ```c
 struct ae2f_Dynamic a = ae2f_Dynamic_init_("Hello World!", 13);
 ae2f_Dynamic_free(&a);
+```
+
+## struct ae2f_Dynamic ae2f_Dynamic_free_(struct ae2f_Dynamic _this);
+endd the allocation of the given structure `_this`.
+returns the initialised value.
+```c
+struct ae2f_Dynamic a = ae2f_Dynamic_init_("Hello World!", 13);
+a = ae2f_Dynamic_free_(a);
 ```
 
 ## unsigned long long ae2f_Dynamic_nEqual(struct ae2f_Dynamic _this, struct ae2f_Dynamic another);

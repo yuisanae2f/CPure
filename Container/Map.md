@@ -1,4 +1,5 @@
-# <a href="../Container.md">ae2f</a>_<a href="./Dynamic.md">Dynamic</a> <d id="_Dynamic"></d>
+# #include
+## <a href="../Container.md#Dynamic">ae2f</a>_<a href="./Dynamic.md">Dynamic</a> <d id="_Dynamic"></d>
 is needed for generic datatype for unordered map.
 
 # <a href="../yuisanae2f.md">ae2f</a>_Pair <d id="_Pair"></d>
@@ -10,7 +11,7 @@ struct ae2f_Pair {
 ```
 is to bond two of data on same place.
 
-# <a href="../yuisanae2f.md">ae2f</a>_Map <d id="_Map"></d>
+# <a href="../yuisanae2f.md#Map">ae2f</a>_Map <d id="_Map"></d>
 ```c
 struct ae2f_Map {
 	char hV;		// works as boolean which shows if certain pointer has a value.
@@ -33,7 +34,7 @@ is the constructor of the given structure <a href="#_Map">`ae2f_Map`</a>.
 struct ae2f_Map a; ae2f_Map_init(&a);
 ```
 
-## void ae2f_Map_add(struct ae2f_Map* _this, struct ae2f_Dynamic key, struct ae2f_Dynamic value); <d id="add"></d>
+## void ae2f_Map_add(struct ae2f_Map* _this, struct <a href="#_Dynamic">ae2f_Dynamic</a> key, struct <a href="#_Dynamic">ae2f_Dynamic</a> value); <d id="add"></d>
 will add this map `_this` a copy of the pair of value.  
 Since <a href="#_Dynamic">`dynamics`</a> as parametres <a href="./Dynamic.md#copy">has been duplicated</a>, still the original ones are need to be freed after the map has been freed.
 ```c
@@ -57,7 +58,7 @@ struct ae2f_Pair p = {
 ae2f_Map_add_(&a, p);
 ```
 
-## struct ae2f_Map* ae2f_Map_visit(struct ae2f_Map* _this, struct ae2f_Dynamic key); <d id="visit"></d>
+## struct ae2f_Map* ae2f_Map_visit(struct ae2f_Map* _this, struct <a href="#_Dynamic">ae2f_Dynamic</a> key); <d id="visit"></d>
 returns the address where the `key` matches the one certain structure `_this` has.  
 returns 0 if `key` has not been found.
 ```c
@@ -72,7 +73,7 @@ ae2f_Map_add_(&a, p);
 printf("%s", ae2f_Map_visit(&a, p.key)->kv.value.c); // Goodbye World!
 ```
 
-## struct ae2f_Dynamic ae2f_Map_at(struct ae2f_Map* _this, struct ae2f_Dynamic key); <d id="at"></d>
+## struct ae2f_Dynamic ae2f_Map_at(struct ae2f_Map* _this, struct <a href="#_Dynamic">ae2f_Dynamic</a> key); <d id="at"></d>
 returns the value where the `key` matches the one certain structure `_this` has.  
 casts an error when `key` has not been found.
 ```c

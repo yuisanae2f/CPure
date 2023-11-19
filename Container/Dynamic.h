@@ -14,10 +14,11 @@ struct ae2f_Dynamic ae2f_Dynamic_init(unsigned long long);
 struct ae2f_Dynamic ae2f_Dynamic_init_(void*, unsigned long long);
 struct ae2f_Dynamic ae2f_Dynamic_copy(struct ae2f_Dynamic);
 void ae2f_Dynamic_re(struct ae2f_Dynamic*, unsigned long long);
+void ae2f_Dynamic_re_(struct ae2f_Dynamic*, void*, unsigned long long);
 void ae2f_Dynamic_free(struct ae2f_Dynamic*);
+struct ae2f_Dynamic ae2f_Dynamic_free_(struct ae2f_Dynamic);
 unsigned long long ae2f_Dynamic_nEqual(struct ae2f_Dynamic, struct ae2f_Dynamic);
 char ae2f_Dynamic_equal(struct ae2f_Dynamic, struct ae2f_Dynamic);
 
 #include "Dynamic.c"
-
 #endif // !AE2F_CONTAINER_ARRAY

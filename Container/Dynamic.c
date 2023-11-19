@@ -1,4 +1,3 @@
-// #include "Dynamic.h"
 #ifdef AE2F_DYNAMIC
 struct ae2f_Dynamic ae2f_Dynamic_init(unsigned long long len) {
 	struct ae2f_Dynamic rtn;
@@ -34,7 +33,17 @@ void ae2f_Dynamic_re(struct ae2f_Dynamic* _this, unsigned long long len) {
 	free(_this->c);
 	return;
 }
-void ae2f_Dynamic_free(struct ae2f_Dynamic* _this) { free(_this->c); _this->len = 0; }
+void ae2f_Dynamic_re_(struct ae2f_Dynamic* _this, void* arr, unsigned long long len) {
+	free(_this->c); _this->c = malloc(len); _this->len = len;
+	for (unsigned long long i = 0; i < len; i++)
+		((char*)_this->c)[i] = ((char*)arr)[i];
+}
+void ae2f_Dynamic_free(struct ae2f_Dynamic* _this) { free(_this->c); _this->len = 0, _this->c = 0; }
+struct ae2f_Dynamic ae2f_Dynamic_free_(struct ae2f_Dynamic _this) {
+	free(_this.c);
+	_this.len = _this.c = 0;
+	return _this;
+}
 unsigned long long ae2f_Dynamic_nEqual(struct ae2f_Dynamic _this, struct ae2f_Dynamic another) {
 	typedef unsigned long long ull;
 	typedef struct ae2f_Dynamic arr;

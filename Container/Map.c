@@ -52,7 +52,7 @@ void ae2f_Map_add(struct ae2f_Map* _this, struct ae2f_Dynamic key, struct ae2f_D
 	switch ((int)ae2f_Map_visit(_this, key))
 	{
 	case 0:
-		_this->end->next = malloc(sizeof(struct ae2f_Map));
+		_this->end->next = (struct ae2f_Map*)malloc(sizeof(struct ae2f_Map));
 		_this->end->next->pre = _this->end;
 		_this->end = _this->end->next;
 
