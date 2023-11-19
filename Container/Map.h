@@ -20,12 +20,13 @@ struct ae2f_Map {
 	struct ae2f_Map* end;
 };
 
-void ae2f_Map_init(struct ae2f_Map* i);
-struct ae2f_Map* ae2f_Map_pop(struct ae2f_Map* _this);
-void ae2f_Map_free(struct ae2f_Map* _this);
-struct ae2f_Map* ae2f_Map_visit(struct ae2f_Map* _this, struct ae2f_Dynamic key);
-void ae2f_Map_add(struct ae2f_Map* _this, struct ae2f_Dynamic key, struct ae2f_Dynamic value);
-struct ae2f_Dynamic ae2f_Map_at(struct ae2f_Map* _this, struct ae2f_Dynamic key);
+void ae2f_Map_init(struct ae2f_Map*);
+struct ae2f_Map* ae2f_Map_pop(struct ae2f_Map*);
+void ae2f_Map_free(struct ae2f_Map*);
+struct ae2f_Map* ae2f_Map_visit(struct ae2f_Map*, struct ae2f_Dynamic);
+void ae2f_Map_add(struct ae2f_Map*, struct ae2f_Dynamic, struct ae2f_Dynamic);
+void ae2f_Map_add_(struct ae2f_Map*, struct ae2f_Pair);
+struct ae2f_Dynamic ae2f_Map_at(struct ae2f_Map*, struct ae2f_Dynamic);
 
 
 #include "Map.c"

@@ -68,6 +68,10 @@ void ae2f_Map_add(struct ae2f_Map* _this, struct ae2f_Dynamic key, struct ae2f_D
 	}
 }
 
+void ae2f_Map_add_(struct ae2f_Map* _this, struct ae2f_Pair pair) {
+	return ae2f_Map_add(_this, pair.key, pair.value);
+}
+
 struct ae2f_Dynamic ae2f_Map_at(struct ae2f_Map* _this, struct ae2f_Dynamic key) {
 	return ae2f_Map_visit(_this, key)->kv.value;
 }
