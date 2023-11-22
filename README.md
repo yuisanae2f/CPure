@@ -22,7 +22,7 @@ Once global directory for dll `AE2F_PATH` defined, rest will be done automatical
 ```
 If you're going to use the branch of `C`, you should define as `AE2F_PATH_C` instead of `AE2F_PATH`.
 ```c
-#define AE2F_PATH_C "../x64/Release" // path for your dll's in C.
+#define AE2F_PATH_C "../x64/Release" // path for your dll's for C.
 ```
 
 ### <a href="https://github.com/yuisanae2f/justHeaders/tree/C">C</a>
