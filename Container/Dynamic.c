@@ -73,4 +73,20 @@ char ae2f_Dynamic_equal(struct ae2f_Dynamic _this, struct ae2f_Dynamic another) 
 	for (; i < _this.len && ((char*)(_this.c))[i] == ((char*)(another.c))[i]; i++) {}
 	return i == _this.len;
 }
+void* ae2f_Dynamic_find(struct ae2f_Dynamic _this, struct ae2f_Dynamic val, unsigned long long ignore) {
+	switch (_this.len < val.len)
+	{
+	case 1:
+		return 0;
+	default:;
+		unsigned long long sc[] = { 0, ignore };
+		for (unsigned long long i = 0; i < _this.len; i++) {
+			*sc = ((char*)_this.c)[i] == (*sc)[(char*)val.c] ? *sc + 1 : 0;
+			switch (*sc == val.len && 0 == (sc[1]--)) {
+			case 0: if(*sc == val.len) *sc = 0; break;
+			default: return ((char*)_this.c) + i - val.len + 1;
+			}
+		} return 0;
+	}
+}
 #endif // AE2F_CONTAINER_ARRAY

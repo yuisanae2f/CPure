@@ -4,7 +4,6 @@
 #endif // !AE2F_DYNAMIC
 
 #ifdef AE2F_DYNAMIC
-#define AE2F_MAP
 
 struct ae2f_Pair {
 	struct ae2f_Dynamic key;
@@ -27,7 +26,6 @@ struct ae2f_Map* ae2f_Map_visit(struct ae2f_Map*, struct ae2f_Dynamic);
 void ae2f_Map_add(struct ae2f_Map*, struct ae2f_Dynamic, struct ae2f_Dynamic);
 void ae2f_Map_add_(struct ae2f_Map*, struct ae2f_Pair);
 struct ae2f_Dynamic ae2f_Map_at(struct ae2f_Map*, struct ae2f_Dynamic);
-
 
 #include "Map.c"
 #endif // AE2F_DYNAMIC
