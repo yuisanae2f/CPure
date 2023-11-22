@@ -2,7 +2,7 @@
 ## <a href="../Container.md#Dynamic">ae2f</a>_<a href="./Dynamic.md">Dynamic</a> <d id="_Dynamic"></d>
 is needed for generic datatype for unordered map.
 
-# <a href="../yuisanae2f.md">ae2f</a>_Pair <d id="_Pair"></d>
+# <a href="../Container.md">ae2f</a>_Pair <d id="_Pair"></d>
 ```c
 struct ae2f_Pair {
 	struct ae2f_Dynamic key;
@@ -11,7 +11,7 @@ struct ae2f_Pair {
 ```
 is to bond two of data on same place.
 
-# <a href="../yuisanae2f.md#Map">ae2f</a>_Map <d id="_Map"></d>
+# <a href="../Container.md#Map">ae2f</a>_Map <d id="_Map"></d>
 ```c
 struct ae2f_Map {
 	char hV;		// works as boolean which shows if certain pointer has a value.
