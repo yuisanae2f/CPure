@@ -1,3 +1,14 @@
+#pragma once
+#include <stdio.h>
+
+#ifndef AE2F
+#ifdef AE2F_EXPORT
+#define AE2F __declspec(dllexport)
+#else
+#define AE2F extern "C" __declspec(dllimport)
+#endif // AE2F_EXPORT
+#endif // !AE2F
+
 #ifndef AE2F_DYNAMIC
 
 #ifndef _INC_STDLIB
@@ -9,16 +20,16 @@ struct ae2f_Dynamic {
 	unsigned long long len;
 };
 
-struct ae2f_Dynamic ae2f_Dynamic_init(unsigned long long);
-struct ae2f_Dynamic ae2f_Dynamic_init_(void*, unsigned long long);
-struct ae2f_Dynamic ae2f_Dynamic_copy(struct ae2f_Dynamic);
-void ae2f_Dynamic_re(struct ae2f_Dynamic*, unsigned long long);
-void ae2f_Dynamic_re_(struct ae2f_Dynamic*, void*, unsigned long long);
-void ae2f_Dynamic_free(struct ae2f_Dynamic*);
-struct ae2f_Dynamic ae2f_Dynamic_free_(struct ae2f_Dynamic);
-unsigned long long ae2f_Dynamic_nEqual(struct ae2f_Dynamic, struct ae2f_Dynamic);
-char ae2f_Dynamic_equal(struct ae2f_Dynamic, struct ae2f_Dynamic);
-void* ae2f_Dynamic_find(struct ae2f_Dynamic, struct ae2f_Dynamic, unsigned long long);
+AE2F struct ae2f_Dynamic ae2f_Dynamic_init(unsigned long long);
+AE2F struct ae2f_Dynamic ae2f_Dynamic_init_(void*, unsigned long long);
+AE2F struct ae2f_Dynamic ae2f_Dynamic_copy(struct ae2f_Dynamic);
+AE2F void ae2f_Dynamic_re(struct ae2f_Dynamic*, unsigned long long);
+AE2F void ae2f_Dynamic_re_(struct ae2f_Dynamic*, void*, unsigned long long);
+AE2F void ae2f_Dynamic_free(struct ae2f_Dynamic*);
+AE2F struct ae2f_Dynamic ae2f_Dynamic_free_(struct ae2f_Dynamic);
+AE2F unsigned long long ae2f_Dynamic_nEqual(struct ae2f_Dynamic, struct ae2f_Dynamic);
+AE2F char ae2f_Dynamic_equal(struct ae2f_Dynamic, struct ae2f_Dynamic);
+AE2F void* ae2f_Dynamic_find(struct ae2f_Dynamic, struct ae2f_Dynamic, unsigned long long);
 
 #define AE2F_DYNAMIC(name, byte) struct ae2f_Dynamic name = ae2f_Dynamic_init(byte);
 #define AE2F_DYNAMIC_(name, type, count) AE2F_DYNAMIC(name, sizeof(type) * count)
@@ -50,5 +61,4 @@ unsigned long long arr[] = __VA_ARGS__; \
 void* p##arr = nest; for(unsigned long long i##arr = 0; i##arr < sizeof(arr) / sizeof(unsigned long long) - 1; i##arr++)\
 p##arr = ((void**)p##arr)[i##arr]; pointer = ((type*)p##arr) + arr[sizeof(arr) / sizeof(unsigned long long)];}
 
-#include "Dynamic.c"
 #endif // !AE2F_CONTAINER_ARRAY
