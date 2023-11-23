@@ -5,7 +5,7 @@
 #ifdef AE2F_EXPORT
 #define AE2F __declspec(dllexport)
 #else
-#define AE2F extern "C" __declspec(dllimport)
+#define AE2F __declspec(dllimport)
 #endif // AE2F_EXPORT
 #endif // !AE2F
 
