@@ -1,6 +1,6 @@
 # #include
 ## <a href="../Container.md#Dynamic">ae2f</a>_<a href="./Dynamic.md">Dynamic</a> <d id="_Dynamic"></d>
-is the structure where pointer of the dynamically allocated room and its length are contained.
+is the structure where the pointer of the dynamically allocated room and its length are contained.
 
 # <a href="../Container.md">ae2f</a>_Pair <d id="_Pair"></d>
 ```c
@@ -9,11 +9,11 @@ struct ae2f_Pair {
 	union ae2f_Unit val;
 };
 ```
-is to bond two of data in the same location, `c`.  
+binds two pieces of data to the same location, `c`.  
 `val` points where the value is allocated.
 
 ## struct ae2f_Pair* ae2f_Pair(struct ae2f_Pair* _this, struct ae2f_Dynamic key, struct ae2f_Dynamic value);
-initialises the `_this` with a `key` and `value`.
+initialises `_this` with `key` and `value`.
 ```c
 struct ae2f_Pair p;
 struct ae2f_Dynamic k, v;
@@ -45,16 +45,16 @@ ae2f_Pair_free(&p);
 ```
 
 ## char ae2f_Pair_weigh(struct ae2f_Pair p1, struct ae2f_Dynamic p2, char where);
-compares the value between `p1` and `p2`.  
+compares the values `p1` and `p2`.  
 `where` decides which value to compare.  
-When `where` equals to zero, it will compare between the key of the `p1` and `p2`.  
-When `where` equals to one, it will compare between the value of the `p1` and `p2`.
+When `where` equals zero, it will compare between the key of the `p1` and `p2`.  
+When `where` equals one, it will compare between the value of the `p1` and `p2`.
 ```c
 
 ```
 
 ## struct ae2f_Pair* ae2f_Pair_re(struct ae2f_Pair* _this, struct ae2f_Dynamic val);
-changes the value from `_this`, as the value of `val`.
+copies the value of `val` and replaces the value of `_this`.
 ```c
 struct ae2f_Pair p;
 ae2f_Pair_(&p, "Hello World!", 13, "Goodbye World!", 15);

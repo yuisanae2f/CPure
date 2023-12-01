@@ -1,5 +1,7 @@
+#pragma once
+
 #ifdef AE2F_PATH_C
-#pragma comment(lib, AE2F_PATH_C "/Container.lib")
+#pragma comment(lib, AE2F_PATH_C "/Container")
 #endif // AE2F_PATH_C
 
 #include "Container/Unit.h"

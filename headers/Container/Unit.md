@@ -1,4 +1,4 @@
-# ae2f_Unit
+# <a href="../Dice.md#Unit">ae2f</a>_Unit
 ```c
 union ae2f_Unit {
 	void* raw;
@@ -20,7 +20,7 @@ union ae2f_Unit {
 };
 ```
 is the slicer for a `pointer`.  
-'s each member shares its data each other.
+has members share their data each other.
 ```c
 union ae2f_Unit un = {4};
 un.bt8 == un.ubt1;	// 1, true

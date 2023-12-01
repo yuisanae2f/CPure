@@ -14,11 +14,10 @@ struct ae2f_Map {
 	unsigned long long _div;
 };
 ```
-is an unordered map as the hashmap.  
-is NOT the exact hashmap.  
+is an unordered map similar to the hashmap.  
+but it is not the same.  
 
-provides the map, which has a key.  
-initialiser function will take the pointer and make it ready.
+provides the map, which has a key.
 
 ## struct ae2f_Map* ae2f_Map(struct ae2f_Map* _this); <d id="init"></d>
 initialies the value from `_this`.
@@ -27,8 +26,9 @@ struct ae2f_Map a; ae2f_Map(&a);
 ```
 
 ## struct ae2f_Map* ae2f_Map_add(struct ae2f_Map* _this, struct ae2f_Dynamic k, struct ae2f_Dynamic v);
-will add this map `_this` a copy of the pair of value of `k` and `v`.  
-Since <a href="#_Dynamic">`dynamics`</a> as parametres <a href="./Dynamic.md#copy">has been duplicated</a>, still the original ones are need to be freed after the map has been freed.
+copies of the pair of value of `k` and `v` and adds this map `_this`.  
+Since <a href="#_Dynamic">`dynamics`</a> as parametres <a href="./Dynamic.md#copy">has been duplicated</a>,
+still the original ones are need to be freed after the map has been freed.
 ```c
 struct ae2f_Map a; ae2f_Map(&a);
 struct ae2f_Dynamic k, v;
@@ -43,7 +43,7 @@ ae2f_Map_free(&a);
 ```
 
 ## struct ae2f_Pair* ae2f_Map_at(struct ae2f_Map* _this, struct ae2f_Dynamic key);
-returns the pointer of the value where the `key` matches the one certain structure `_this` has.  
+returns the pointer of the value where the `key` matches the key from the structure, `_this`.  
 returns zero when `key` has not been found.
 ```c
 struct ae2f_Map a; ae2f_Map(&a);
@@ -61,7 +61,7 @@ ae2f_Map_free(&a);
 ```
 
 ## struct ae2f_Map ae2f_Map_free(struct ae2f_Map _this); <d id="free"></d>
-will reset this map `_this`.
+will reset the map `_this`.
 ```c
 struct ae2f_Map a; ae2f_Map(&a);
 ae2f_Map_free(&a);

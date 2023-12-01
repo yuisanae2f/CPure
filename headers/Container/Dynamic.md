@@ -12,7 +12,7 @@ struct ae2f_Dynamic {
 is the structure where pointer of the dynamically allocated room and its length are contained.
 
 ## struct ae2f_Dynamic* ae2f_Dynamic(struct ae2f_Dynamic* _this, unsigned long long len);
-allocates as the length of `len` and contains the information into `_this`.  
+allocates as the same length of `len` and puts its information into `_this`.  
 returns the pointer of `_this`.
 ```c
 struct ae2f_Dynamic a;
@@ -25,7 +25,7 @@ ae2f_Dynamic_free(&a);
 ```
 
 ## struct ae2f_Dynamic* ae2f_Dynamic_(struct ae2f_Dynamic* _this, void* val, unsigned long long len);
-copies the data from `val` as the length of `len` and contains the information into `_this`.  
+copies the data from `val` as the same length of `len` and puts the information into `_this`.  
 returns the pointer of `_this`.
 ```c
 struct ae2f_Dynamic a;
@@ -37,7 +37,7 @@ ae2f_Dynamic_free(&a);
 ```
 
 ## struct ae2f_Dynamic* ae2f_Dynamic_re(struct ae2f_Dynamic* _this, unsigned long long len);
-re-allocates as the new length of `len`, keeping the value from `_this`.  
+re-allocates as the new length of `len`, while keeping the value from `_this`.  
 returns the pointer of `_this`.
 ```c
 struct ae2f_Dynamic a; ae2f_Dynamic_(&a, "Hello World!", 13);
@@ -75,7 +75,7 @@ ae2f_Dynamic_free(&a);
 ```
 
 ## struct ae2f_Dynamic ae2f_Dynamic_copy(struct ae2f_Dynamic* _this);
-copy the value of `_this`.  
+copies the value of `_this`.  
 returns the value copied from `_this`.
 ```c
 struct ae2f_Dynamic a;
@@ -92,7 +92,7 @@ ae2f_Dynamic_free(&b);	// The copied value is also need to be freed.
 compares `_this` with `another`.  
 returns -1 when `_this` is greater than `another`.  
 returns 1 when `another` is greater than `_this`.  
-returns 0 when those two are same.
+returns 0 when those two(`_this`, `another`) are the same.
 ```c
 struct ae2f_Dynamic a, b;
 ae2f_Dynamic_(&a, "Hello World!", 13);
