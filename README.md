@@ -18,6 +18,3 @@ Once global directory for dll `AE2F_PATH_C` defined, rest will be done automatic
 
 ## <a href="./headers/Container.md">Container</a>
 allocates data in void `pointer` array.
-
-## <a href="./headers/Dice.md">Dice</a>
-generates the random number by <a href="https://en.wikipedia.org/wiki/Mersenne_Twister#Pseudocode">`Mersenne Twister`</a>.

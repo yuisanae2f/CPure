@@ -1,6 +1,7 @@
 # #include
-## <a href="../Container.md#Dynamic">ae2f</a>_<a href="./Dynamic.md">Dynamic</a> <d id="_Dynamic"></d>
-is needed for generic datatype for unordered map.
+## <a href="../Container.md#Dynamic">ae2f</a>_<a href="./Pair.md">Pair</a> <d id="_Pair"></d>
+binds two pieces of data to the same location, `c`.  
+`val` points where the value is allocated.
 
 
 # <a href="../Container.md#Dynamic">ae2f</a>_Map
