@@ -5,6 +5,11 @@ has nothing here.
 see other branches for something you might want.  
 is made for Windows only.
 
+## Discord Server
+I made a discord for my repositories and here is the thing.  
+Caution: this writer's English sucks.  
+https://discord.gg/x6atqkuYaZ
+
 ## C/C++
 ### Usage method
 #### Check the `critical dependency`.
