@@ -50,11 +50,36 @@ compares the values `p1` and `p2`.
 When `where` equals zero, it will compare between the key of the `p1` and `p2`.  
 When `where` equals one, it will compare between the value of the `p1` and `p2`.
 ```c
+struct ae2f_Pair p;
+struct ae2f_Dynamic a, b;
 
+ae2f_Dynamic_(&a, "Hello World!", 13);
+ae2f_Dynamic_(&b, "Goodbye World!", 15);
+	
+ae2f_Pair(&p, a, b);
+
+printf("%d ", ae2f_Pair_weigh(p, a, 0));	// 0
+printf("%d", ae2f_Pair_weigh(p, a, 1));		// 1
 ```
 
-## struct ae2f_Pair* ae2f_Pair_re(struct ae2f_Pair* _this, struct ae2f_Dynamic val);
-copies the value of `val` and replaces the value of `_this`.
+## struct ae2f_Dynamic ae2f_Pair_get(struct ae2f_Pair* _this, char where);
+is the getter for `ae2f_Pair`.
+returns the value at which `where` decides to set among the members of `_this`.
+returns the key of `_this` when `where` equals zero.  
+returns  the value of `_this` when `where` equals one.
+```c
+struct ae2f_Pair p;
+ae2f_Pair_(&p, "Hello World!", 13, "Goodbye World!", 15);
+
+printf("%s\n", ae2f_Pair_get(&p, 0).c.bt1);	 // Hello World!
+printf("%s\n", ae2f_Pair_get(&p, 1).c.bt1);	 // Goodbye World!
+```
+
+## struct ae2f_Pair* ae2f_Pair_set(struct ae2f_Pair* _this, struct ae2f_Dynamic val, char where);
+is the setter for `ae2f_Pair`.  
+changes the value at which `where` decides to set among the members of `_this`.
+changes the key of `_this` when `where` equals zero.  
+changes the value of `_this` when `where` equals one.
 ```c
 struct ae2f_Pair p;
 ae2f_Pair_(&p, "Hello World!", 13, "Goodbye World!", 15);
@@ -62,7 +87,7 @@ ae2f_Pair_(&p, "Hello World!", 13, "Goodbye World!", 15);
 printf("%s\n", p.val.bt1);	// Goodbye World!
 
 struct ae2f_Dynamic _new  = { {"It's just another value!"}, 25 };
-ae2f_Pair_re(&p, _new);
+ae2f_Pair_set(&p, _new, 1);
 
 printf("%s", p.val);		// It's just another value!
 

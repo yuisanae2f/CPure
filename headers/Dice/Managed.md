@@ -2,7 +2,7 @@
 ## <a href="../Dice.md#Dice">ae2f</a>_<a href="./Dice.md">Dice</a>
 generates the random number once initialised.
 
-# ae2f_Dice_Managed
+# <a href="../../README.md#Dice">ae2f</a>_<a href="../Dice.md#Dice">_Dice</a>_Managed
 ## unsigned long long ae2f_Dice_Managed(struct ae2f_Dice* _this, unsigned long long* arr, unsigned long long len);
 receives the random number generator `_this` and an array `arr` as the length of `len`.  
 Each component of `arr` will be its probability via which this function would select among the array `arr`.  

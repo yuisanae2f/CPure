@@ -3,9 +3,6 @@
 binds two pieces of data to the same location, `c`.  
 `val` points where the value is allocated.
 
-
-# <a href="../Container.md#Dynamic">ae2f</a>_Map
-```
 # <a href="../Container.md#Map">ae2f</a>_Map <d id="_Map"></d>
 ```c
 struct ae2f_Map {
