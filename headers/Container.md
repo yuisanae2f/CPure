@@ -17,3 +17,6 @@ is an unordered map as the hashmap.
 
 ## <a href="./Container/Context.md" id="Context">Context</a>
 is the binder for the temporary dynamic allocation on scope.
+
+## <a href="./Container/File.md" id="File">File</a>
+manages the basic file reading.  

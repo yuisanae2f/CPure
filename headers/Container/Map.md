@@ -1,5 +1,5 @@
 # #include
-## <a href="../Container.md#Dynamic">ae2f</a>_<a href="./Pair.md">Pair</a> <d id="_Pair"></d>
+## <a href="../Container.md#Pair">ae2f</a>_<a href="./Pair.md">Pair</a> <d id="_Pair"></d>
 binds two pieces of data to the same location, `c`.  
 `val` points where the value is allocated.
 

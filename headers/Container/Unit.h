@@ -1,7 +1,3 @@
-#ifndef AE2F_EXPORT
-#define AE2F_EXPORT
-#endif // !1
-
 #ifndef AE2F
 #ifdef AE2F_EXPORT
 #define AE2F __declspec(dllexport)
