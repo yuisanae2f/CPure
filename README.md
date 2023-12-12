@@ -19,6 +19,9 @@ Once global directory for dll `AE2F_PATH_C` defined, rest will be done automatic
 ## <a href="./lcse.md" id="LICENSE">LICENSE</a>
 Check the Apache License here.
 
+## Community Discord Server
+https://discord.gg/x6atqkuYaZ
+
 ## <a href="./headers/Container.md" id="Container">Container</a>
 allocates data in void `pointer` array.
 
