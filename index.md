@@ -16,6 +16,9 @@ Once global directory for dll `AE2F_PATH_C` defined, rest will be done automatic
 #define AE2F_PATH_C "../x64/Release" // path for your dll's.
 ```
 
+## <a href="./LICENSE.md">LICENSE</a>
+Check the license here
+
 ## <a href="./headers/Container.md">Container</a>
 allocates data in void `pointer` array.
 
