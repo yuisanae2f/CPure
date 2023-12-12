@@ -1,5 +1,5 @@
 #pragma once
-#ifndef AE2F_FILE
+#ifndef AE2F_CONTAINER_FILE
 #ifndef AE2F_PAIR
 #include "Pair.h"
 #endif // !AE2F_PAIR
@@ -10,7 +10,7 @@
 
 #ifdef AE2F_PAIR
 #ifdef _INC_STDIO
-#define AE2F_FILE
+#define AE2F_CONTAINER_FILE
 
 AE2F struct ae2f_File {
 	const char* path;

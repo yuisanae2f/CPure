@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #endif // !_INC_STDLIB
 
-struct ae2f_Dynamic {
+AE2F struct ae2f_Dynamic {
 	union ae2f_Unit c;
 	unsigned long long len;
 };

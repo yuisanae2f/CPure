@@ -6,7 +6,7 @@
 #endif // !AE2F_DYNAMIC
 #ifdef AE2F_DYNAMIC
 
-struct ae2f_Map {
+AE2F struct ae2f_Map {
 	struct ae2f_Dynamic pairs;
 	unsigned long long len;
 	unsigned long long _amp; unsigned long long _div;

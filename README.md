@@ -19,8 +19,14 @@ Once global directory for dll `AE2F_PATH_C` defined, rest will be done automatic
 ## <a href="./lcse.md" id="LICENSE">LICENSE</a>
 Check the Apache License here.
 
-## [Container](./headers/Container.md) <s id="Container"></s>
+## <a href="./headers/Container.md" id="Container">Container</a>
 allocates data in void `pointer` array.
 
-## [Dice](./headers/Dice.md) <s id="Dice"></s>
+## <a id="Dice" href="./headers/Dice.md" id="Dice">Dice</a>
 generates the random number by <a href="https://en.wikipedia.org/wiki/Mersenne_Twister#Pseudocode">`Mersenne Twister`</a>.
+
+## <a id="File" href="./headers/File.md" id="File">File</a>
+provides the sugary features of file I/O for other custom structures.
+
+## <a id="Printer" href="./headers/Printer.md" id="Printer">Printer</a>
+provides the method of printing for other custom structures.

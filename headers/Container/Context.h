@@ -4,7 +4,7 @@
 #include "Dynamic.h"
 #endif // !AE2F_DYNAMIC
 
-struct ae2f_Context {
+AE2F struct ae2f_Context {
 	struct ae2f_Dynamic c;
 	unsigned long long len;
 	unsigned long long _amp; unsigned long long _div;
