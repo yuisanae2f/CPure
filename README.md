@@ -16,11 +16,11 @@ Once global directory for dll `AE2F_PATH_C` defined, rest will be done automatic
 #define AE2F_PATH_C "../x64/Release" // path for your dll's.
 ```
 
-## <a href="./license" id="license">LICENSE</a>
+## <a href="./lcse.md" id="LICENSE">LICENSE</a>
 Check the Apache License here.
 
-## [Container](./headers/Container) <s id="Container"></s>
+## [Container](./headers/Container.md) <s id="Container"></s>
 allocates data in void `pointer` array.
 
-## [Dice](./headers/Dice) <s id="Dice"></s>
+## [Dice](./headers/Dice.md) <s id="Dice"></s>
 generates the random number by <a href="https://en.wikipedia.org/wiki/Mersenne_Twister#Pseudocode">`Mersenne Twister`</a>.
