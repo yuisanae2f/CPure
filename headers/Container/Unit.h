@@ -1,11 +1,22 @@
 #ifndef AE2F
+#ifdef AE2F_EXPORT
+#define AE2F __declspec(dllexport)
+#else
 #define AE2F __declspec(dllimport)
+#endif // AE2F_EXPORT
 #endif // !AE2F
-
 #ifndef AE2F_UNIT
 #define AE2F_UNIT
 
-AE2F union ae2f_Unit {
+#ifndef AE2F_CPP_PREFIX
+#ifdef AE2F_CPP
+#define AE2F_CPP_PREFIX extern "C"
+#else
+#define AE2F_CPP_PREFIX
+#endif // AE2F_CPP
+#endif // !AE2F_CPP_PREFIX
+
+AE2F_CPP_PREFIX AE2F union ae2f_Unit {
 	void* raw;
 
 	char* bt1;

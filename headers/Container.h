@@ -12,6 +12,7 @@
 #include "Container/Pair.h"
 #include "Container/Map.h"
 #include "Container/Context.h"
+#include "Container/Dimension.h"
 
 #include "Container/File.h"
 

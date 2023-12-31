@@ -3,7 +3,9 @@
 #ifndef AE2F_FILE
 
 #ifndef AE2F_CONTAINER
+#ifndef AE2F_IGNORE_MISSINGS
 #include "./Container.h"
+#endif // !AE2F_IGNORE_MISSINGS
 #endif // !AE2F_CONTAINER
 
 #ifdef AE2F_CONTAINER

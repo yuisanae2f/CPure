@@ -1,10 +1,6 @@
 # <a href="../README.md#Printer">Printer</a>
 provides the method of printing for other custom structures.
 
-## AE2F_PRINTER_IGNORE_MISSING
-Each headers which belongs to this will try to find the missing dependencies of file.  
-If you are to prevent that move and ignore the missings, define `AE2F_PRINTER_IGNORE_MISSING`.
-
 ## General suffix
 adds a function for file reading with a suffix of `_print`.  
 

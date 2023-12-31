@@ -39,6 +39,9 @@ ae2f_Map_add(&a, k, v);
 ae2f_Dynamic_free(&k); ae2f_Dynamic_free(&v);
 ae2f_Map_free(&a);
 ```
+## struct ae2f_Map* ae2f_Map_del(struct ae2f_Map* _this, struct ae2f_Pair* wh);
+deletes the value in `wh` as a pointer of value which belongs to `_this`.  
+pointer of value could be found via `ae2f_Map_at`.
 
 ## struct ae2f_Pair* ae2f_Map_at(struct ae2f_Map* _this, struct ae2f_Dynamic key);
 returns the pointer of the value where the `key` matches the key from the structure, `_this`.  

@@ -15,6 +15,9 @@ binds two pieces of data to the same location, `c`.
 ## <a href="./Container/Map.md" id="Map">Map</a>
 is an unordered map as the hashmap.
 
+## <a href="./Container/Dimension.md" id="Dimension">Dimension</a>
+provides the feature of managing the multidimensional array.
+
 ## <a href="./Container/Context.md" id="Context">Context</a>
 is the binder for the temporary dynamic allocation on scope.
 

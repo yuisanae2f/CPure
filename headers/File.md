@@ -1,13 +1,9 @@
-# #include
+# Critical Dependencies
 ## <a href="./Container.md#File">Container</a>
 provides the features of basic file managing.
 
 # <a href="../README.md#File">File</a>
 provides the sugary features of file I/O for other custom structures.  
-
-## AE2F_FILE_IGNORE_MISSING
-Each headers which belongs to this will try to find the missing dependencies of file.  
-If you are to prevent that move and ignore the missings, define `AE2F_FILE_IGNORE_MISSING`.
 
 ## General suffix
 adds a function for file writing with a suffix of `_write`.  

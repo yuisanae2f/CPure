@@ -10,7 +10,7 @@
 
 #ifdef AE2F_CONTAINER
 #define AE2F_FILE_EXPLORER
-AE2F struct ae2f_File_Explorer {
+AE2F_CPP_PREFIX AE2F struct ae2f_File_Explorer {
 	const char* dir;
 	HANDLE hv;
 	WIN32_FIND_DATAA dir;

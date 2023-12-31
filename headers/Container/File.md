@@ -1,11 +1,11 @@
-# include
+# #include
 ## <a href="../Container.md#Dynamic">ae2f</a>_<a href="./Dynamic.md" id="_Dynamic">Dynamic</a>
 allocates as the same length of `len` and puts its information into `_this`.  
 returns the pointer of `_this`.
 
 # <a href="../Container.md#File">ae2f</a>_File
 ```c
-AE2F struct ae2f_File {
+struct ae2f_File {
 	const char* path;
 	unsigned long long len;
 	unsigned long long off;
@@ -30,10 +30,10 @@ File closing has been failed.
 The file is closed.  
 
 ### 1	<d id="mode_1"/>
-The file is opened as wb+.  
+Means its pointer exists at the beginning of the file.
 
 ### 2	<d id="mode_2"/>
-The file is opened as ab+.  
+Means its pointer exists at the end of the file.
 
 ## ae2f_File::off
 stands for the current offset of the current file pointer `fp`.  
@@ -44,19 +44,27 @@ initialises `_this` structure with a `path` for the file you would like to write
 ```c
 struct ae2f_File file; ae2f_File(&file, "fileName.extension");
 ```
+## struct ae2f_File* ae2f_File_create(struct ae2f_File* _this);
+creates the file located at the path.  
+provided there's a file with the same name and the location, it will override the existing one and create an empty file.
+```c
+struct ae2f_File file; ae2f_File(&file, "fileName.extension");
+ae2f_File_create(&file, 1);	// opening with wb+
+```
 
 ## struct ae2f_File* ae2f_File_open(struct ae2f_File* _this, char mode);
 opens the file of `_this`.  
+provided you try to open a file which does not exist, its mode will go `-2`.  
 `mode` decides the method of file opening:
 
 <ol>
-<li>wb+, file pointer starts at the beginning of the file.</li>
+<li>rb+, file pointer starts at the beginning of the file.</li>
 <li>ab+, file pointer starts at the end of the file.</li>
 </ol>
 
 ```c
 struct ae2f_File file; ae2f_File(&file, "fileName.extension");
-ae2f_File_open(&file, 1);	// opening with wb+
+ae2f_File_open(&file, 1);	// opening with rb+
 ```
 
 After you call this funtion you are able to read and write both.  
