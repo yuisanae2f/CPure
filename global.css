@@ -1,0 +1,23 @@
+@keyframes ld {
+    to {
+        opacity: 100;
+    }
+
+    from {
+        opacity: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body * {
+    animation-fill-mode: both;
+    animation: ld 500ms;
+    background-color: #00000000;
+}

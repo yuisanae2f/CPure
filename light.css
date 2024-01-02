@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(179, 179, 179);
+    color: rgb(86, 86, 86);
+}
+
+body * {
+    color: rgb(86, 86, 86);
+}
+
+a { 
+    color: rgb(87, 87, 87);
+}

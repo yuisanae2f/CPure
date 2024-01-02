@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(45, 45, 45);
+    color: azure;
+}
+
+body * {
+    color: azure;
+}
+
+a { 
+    color: azure;
+}
