@@ -17,7 +17,13 @@ a:hover {
 }
 
 body * {
+    
     animation-fill-mode: both;
     animation: ld 500ms;
+    
     background-color: #00000000;
+}
+
+body {
+    margin: 30px;
 }

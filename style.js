@@ -1,6 +1,6 @@
 function style(nil = "") {
     let _style = new tent("style", "div", document.body);
-    let title = _style.tent("title", "h2");
+    let title = _style.tent("title", "h1");
     switch(argv[1]) {
         case '0':
             let dark = _style.tab("dark", "div");
@@ -24,7 +24,7 @@ function style(nil = "") {
             break;
     }
 
-    t = {en: "Vision", ko: "비전"};
+    t = {en: "Theme", ko: "테마"};
 
     title.append(t[argv[0]] ?? nil);
 }

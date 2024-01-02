@@ -8,7 +8,7 @@ HTMLElement.prototype.code = function(type, code, link = '') {
     colour["var"] = "rgb(100,100,255)";
     colour["struct"] = colour["class"] = "rgb(0,150,150)";
     colour["def"] = colour["defined"] = "rgb(200,180,250)";
-    colour["//"] = "rgb(10,10,100)";
+    colour["//"] = "rgb(10,100,10)";
     colour["string"] = colour["str"] = "rgb(200,120,120)";
     
     rtn.style.color = colour[type] ?? 'rgb(180,180,180)';

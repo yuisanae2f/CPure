@@ -40,7 +40,7 @@ docs["index"] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
     desc.append(content[lang] ?? nil);
 
     desc = desc.box("code");
-    desc.code("preprocessor", "#define ");
+    desc.code("preprocessor", "#define ", '0/C/#define');
     desc.code("def", "AE2F_CPP");
 
     desc = new tent('defs', 'div', board);
@@ -58,7 +58,7 @@ docs["index"] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
     content["ko"] = '이를 원하지 않을 경우 <strong>AE2F_IGNORE_MISSINGS</strong>을 정의하여 이를 중단시킬 수 있습니다.';
     desc.append(content[lang] ?? nil);
     desc = desc.box('code');
-    desc.code("preprocessor", "#define ");
+    desc.code("preprocessor", "#define ", '0/C/#define');
     desc.code("def", "AE2F_IGNORE_MISSINGS");
 
     desc = board.tent('Usage', 'div');
@@ -120,9 +120,9 @@ docs["index"] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
 
     desc = desc.box('code');
     // define AE2F_PATH_C "../x64/Release" // path for your dll's.
-    desc.code("pre", "#define ");
+    desc.code("pre", "#define ", '0/C/#define');
     desc.code("def", "AE2F_PATH_C ");
-    desc.code("string", `"path/for/your/lib/"`);
+    desc.code("string", `"path/for/your/lib/"`, '0/C/string');
 
     desc = board.tent('cpp', 'div');
 
@@ -156,13 +156,13 @@ docs["index"] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
     desc.append(content[lang] ?? nil);
 
     desc = desc.box('code');
-    desc.code("pre", "#define ");
+    desc.code("pre", "#define ", '0/C/#define');
     desc.code("def", "AE2F_PATH_C ");
-    desc.code("string", `"path/for/your/lib/c/"<br/>`);
+    desc.code("string", `"path/for/your/lib/c/"<br/>`, '0/C/string');
 
-    desc.code("pre", "#define ");
+    desc.code("pre", "#define ", '0/C/#define');
     desc.code("def", "AE2F_PATH_CPP ");
-    desc.code("string", `"path/for/your/lib/cpp/"`);
+    desc.code("string", `"path/for/your/lib/cpp/"`, '0/C/string');
 
     desc = board.tent('LICENSE', 'h1').tent('a', 'a');
     desc.set('LICENSE'); desc.pos().href="https://github.com/yuisanae2f/CPure/blob/main/LICENSE";

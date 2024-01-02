@@ -1,10 +1,8 @@
 include('Component/tab.js');
+
 docs['Container'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
     const board = document.getElementById('board');
-    /**
-     * allocates data in void pointer array.  
-chop data into bytes when operating.
-     */
+    
     let c = {};
     let p = board.tent('Dynamic', "div");
     p.tent('title', 'h1').tent('a', 'a').set('Dynamic');

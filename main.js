@@ -20,18 +20,14 @@ function include(path, wh = document.head) {
 include('global.js');
 include('tent.js');
 include('style.js');
-include('locale.js')
+include('locale.js');
 
 function main() {
     let c = document.getElementById('args');
     c.value = argt();
-    document.body.style.margin = "30px";
     locale('TRANSLATED_NOT');
     style('TRANSLATED_NOT');
     let board = new tent("board", "div", document.body);
-
-
-    
 
     if (docs[args()[2]] == undefined) {
         const none = board.tent('404', 'div');
