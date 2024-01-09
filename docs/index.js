@@ -5,6 +5,8 @@ include('Component/code.js');
 docs["index"] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
     const board = document.getElementById("board");
     let desc = new tent("CPure", "div", board);
+
+    const gu = (th) => `https://yuisanae2f.github.io/YuiSanae2f/${args()[1] == '1' ? "index" : 'dark'}.html?${btoa(`${args()[0]} ${args()[1]} ${th}`)}`;
     
     desc.tent("title", "h1").set("CPure");
 
@@ -120,9 +122,9 @@ docs["index"] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
 
     desc = desc.box('code');
     // define AE2F_PATH_C "../x64/Release" // path for your dll's.
-    desc.code("pre", "#define ", '0/C/#define');
+    desc.code("pre", "#define ", gu('0/C/#define'));
     desc.code("def", "AE2F_PATH_C ");
-    desc.code("string", `"path/for/your/lib/"`, '0/C/string');
+    desc.code("string", `"path/for/your/lib/"`, gu('0/C/string'));
 
     desc = board.tent('cpp', 'div');
 
@@ -156,13 +158,13 @@ docs["index"] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
     desc.append(content[lang] ?? nil);
 
     desc = desc.box('code');
-    desc.code("pre", "#define ", '0/C/#define');
+    desc.code("pre", "#define ", gu('0/C/#define'));
     desc.code("def", "AE2F_PATH_C ");
-    desc.code("string", `"path/for/your/lib/c/"<br/>`, '0/C/string');
+    desc.code("string", `"path/for/your/lib/c/"<br/>`, gu('0/C/string'));
 
-    desc.code("pre", "#define ", '0/C/#define');
+    desc.code("pre", "#define ", gu('0/C/#define'));
     desc.code("def", "AE2F_PATH_CPP ");
-    desc.code("string", `"path/for/your/lib/cpp/"`, '0/C/string');
+    desc.code("string", `"path/for/your/lib/cpp/"`, gu('0/C/string'));
 
     desc = board.tent('LICENSE', 'h1').tent('a', 'a');
     desc.set('LICENSE'); desc.pos().href="https://github.com/yuisanae2f/CPure/blob/main/LICENSE";

@@ -16,4 +16,11 @@ docs['Container'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
     c["en"] = "manages the data in order to bytes.";
     c["ko"] = "바이트 단위로 메모리를 관리합니다.";
     p.tent('desc', 'div').append((c[lang] ?? nil));
+
+    p = board.tent('Pair', 'div');
+    p.tent('title', 'h1').set(`<a href="${getURL('Container/Pair')}">Pair</a>`);
+
+    c = {};
+    c["ko"] = "두 데이터를 하나의 관계로 묶습니다.";
+    c["en"] = "binds two data in a structure.";
 }

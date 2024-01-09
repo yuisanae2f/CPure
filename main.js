@@ -38,7 +38,10 @@ function main() {
         none.tent('title', 'h1').set("NOT_FOUND");
         none.append(content[args()[0]] ?? 'TRANSLATED_NOT');
     } else {
-        docs[args()[2]](args()[0], 'TRANSLATED_NOT');
+        const funn = docs[args()[2]](args()[0], 'TRANSLATED_NOT');
+
+        if(funn[1].includes(args()[3])) funn[0][args()[3]]();
+        else for(const w of funn[1]) funn[0][w]();
     }
 
     return 0;

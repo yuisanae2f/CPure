@@ -39,4 +39,3 @@ HTMLElement.prototype.array = function(id, lArr, fun) {
     new tent('', '', this).array(id, lArr, fun);
 }
 
-Object.defineProperty(HTMLElement.prototype, "nameWhateverString", {get: () => { return this.innerHTML; }, set: function(r) { this.innerHTML = r; }});
