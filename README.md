@@ -5,4 +5,4 @@ the doc: https://yuisanae2f.github.io/CPure/
 the discord: https://discord.gg/x6atqkuYaZ  
 license: https://github.com/yuisanae2f/CPure/blob/main/LICENSE
 
-Windows: 
+Windows: https://github.com/yuisanae2f/CPure/tree/Windows
