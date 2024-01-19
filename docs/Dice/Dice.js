@@ -46,6 +46,10 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, '};');
         })(p.box('declares'));
+
+        c = {};
+        c['en'] = `generates the random number by <a href="https://en.wikipedia.org/wiki/Mersenne_Twister#Pseudocode"><strong>Mersenne Twister</strong></a>.`;
+        p.append(c[lang] ?? nil);
     }
 
     // struct ae2f_Dice* ae2f_Dice(struct ae2f_Dice* _this, unsigned long s);
@@ -53,7 +57,6 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
         p = board.tent('make', 'div');
         p.tent('title', 'h1').set('ae2f_Dice');
         p = p.tab('desc', 'div');
-
         ((p) => {
             p
             .code('word', 'struct ', gu('0/C/struct'))
@@ -74,10 +77,15 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p
             .code('word', 'unsigned ', gu('0/C/type unsigned'))
             .code('word', 'long ', gu('0/C/type int'))
-            .code('#', 's', gu('0/C/function param'));
+            .code('#', 'seed', gu('0/C/function param'));
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        c = {};
+        // initialises the given structure <strong>_this</strong> with a <strong>seed</strong>.
+        c['en'] = `initialises the given structure <strong>_this</strong> with a <strong>seed</strong>.`;
+        p.append(c[lang] ?? nil);
     }
 
     // struct ae2f_Dice* ae2f_Dice_(struct ae2f_Dice* _this, unsigned long* seed, int len);
@@ -117,6 +125,11 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        // initialises the given structure <strong>_this</strong> with a array of <strong>seed</strong> as a length of <strong>len</strong>.
+        c = {};
+        c['en'] = "initialises the given structure <strong>_this</strong> with a array of <strong>seed</strong> as a length of <strong>len</strong>.";
+        p.append(c[lang] ?? nil);
     }
 
     // unsigned long ae2f_Dice_int32(struct ae2f_Dice* _this);
@@ -141,6 +154,11 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        // generates the random number of <strong>unsigned long</strong> from <strong>_this</strong>.
+        c = {};
+        c['en'] = 'generates the random number of <strong>unsigned long</strong> from <strong>_this</strong>.';
+        p.append(c[lang] ?? nil);
     }
 
     // long ae2f_Dice_int31(struct ae2f_Dice* _this);
@@ -164,6 +182,11 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        // generates the random number of `long` from `_this`.
+        c ={};
+        c['en'] = 'generates the random number of <strong>long</strong> from <strong>_this</strong>.';
+        p.append(c[lang] ?? nil);
     }
 
     // double ae2f_Dice_real(struct ae2f_Dice* _this);
@@ -187,6 +210,12 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        // generates the random number of `double` from `_this`.
+        c = {};
+        c['en'] = 'generates the random number of <strong>double</strong> from <strong>_this</strong>.';
+
+        p.append(c[lang] ?? nil)
     }
 
     // double ae2f_Dice_real_(struct ae2f_Dice* _this);
@@ -210,6 +239,11 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        c = {};
+        c['en'] = 'generates the random number of <strong>double</strong> from <strong>_this</strong>.';
+
+        p.append(c[lang] ?? nil)
     }
 
     // double ae2f_Dice_real_2(struct ae2f_Dice* _this);
@@ -233,6 +267,11 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        c = {};
+        c['en'] = 'generates the random number of <strong>double</strong> from <strong>_this</strong>.';
+
+        p.append(c[lang] ?? nil)
     }
 
     // double ae2f_Dice_res53(struct ae2f_Dice* _this);
@@ -256,6 +295,11 @@ docs['Dice/Dice'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        c = {};
+        c['en'] = 'generates the random number of <strong>double</strong> from <strong>_this</strong>.';
+
+        p.append(c[lang] ?? nil)
     }
 
     return [fun, ['_', 'make', 'make_', 'int32', 'int31', 'real', 'real_', 'real_2', 'res53']];

@@ -27,7 +27,7 @@ function main() {
     c.value = argt();
     locale('TRANSLATED_NOT');
     style('TRANSLATED_NOT');
-    let board = new tent("board", "div", document.body);
+    const board = new tent("board", "div", document.body);
 
     if (docs[args()[2]] == undefined) {
         const none = board.tent('404', 'div');

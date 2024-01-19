@@ -20,6 +20,8 @@ function preMain() {
         text = p[1] ?? '';
     } let argv = text.split(' ');
 
+    argv[0] = argv[0].split('-')[0];
+
     switch (argv.length) {
         case 0: case 1: case 2:
             text = `${navigator.language || navigator.userLanguage} 1 index`;

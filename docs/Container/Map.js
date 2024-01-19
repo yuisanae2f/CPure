@@ -57,6 +57,14 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, '};');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            is an unordered map similar to the hashmap. <br/>
+            but it is not the same. <br/><br/>
+            
+            provides the map, which has a key.`
+        }[lang] ?? nil);
     }
 
     // struct ae2f_Map* ae2f_Map(struct ae2f_Map* _this);
@@ -82,6 +90,12 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            initialies the value from <strong>_this</strong>.
+            `
+        }[lang] ?? nil);
     }
 
     // struct ae2f_Pair* ae2f_Map_at(struct ae2f_Map* _this, struct ae2f_Dynamic key);
@@ -114,6 +128,13 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            returns the pointer of the value where the <strong>key</strong> matches the key from the structure, <strong>_this</strong>.   <br/>
+            returns zero when <strong>key</strong> has not been found.
+            `
+        }[lang] ?? nil);
     }
 
     // struct ae2f_Map* ae2f_Map_add(struct ae2f_Map* _this, struct ae2f_Dynamic k, struct ae2f_Dynamic v);
@@ -153,6 +174,14 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            copies of the pair of value of <strong>k</strong> and <strong>v</strong> and adds this map <strong>_this</strong>.  <br/>
+            Since <a href="${getURL('Container/Dynamic')}"><strong>dynamics</strong></a> as parametres <a href="${getURL('Container/Dynamic copy')}">has been duplicated</a>,
+            still the original ones are need to be freed after the map has been freed.
+            `
+        }[lang] ?? nil);
     }
 
     // struct ae2f_Map* ae2f_Map_del(struct ae2f_Map* _this, struct ae2f_Pair* wh);
@@ -186,6 +215,13 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            deletes the value in <strong>wh</strong> as a pointer of value which belongs to <strong>_this</strong>.  <br/>
+            pointer of value could be found via <strong><a href="#board at">ae2f_Map_at</a></strong>.
+            `
+        }[lang] ?? nil);
     }
 
     // struct ae2f_Map* ae2f_Map_free(struct ae2f_Map* _this);
@@ -211,6 +247,12 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            will reset the map <strong>_this</strong>.
+            `
+        }[lang] ?? nil);
     }
 
     // struct ae2f_Map ae2f_Map_copy(struct ae2f_Map* _this);

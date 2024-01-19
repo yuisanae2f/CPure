@@ -47,7 +47,13 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
                 p.code('', '};');
         })(p.box('declares'));
 
-        c['ko0'] = '같은 범위 안에서 ';
+        c ={
+            en0: "is the binder for the temporary dynamic allocation on scope.",
+            en1: "could be used when you want to manage temporary dynamic allocation in the same scope."
+        };
+
+        p.append((c[lang + 0] ?? nil) + '<br/>');
+        p.append(c[lang + 1] ?? nil);
     }
 
     // content
@@ -71,6 +77,13 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        // initialises _this ready for action.
+        c = {
+            en: 'initialises <strong>_this</strong> ready for action.'
+        }
+
+        p.append(c[lang] ?? nil);
     }
 
     fun['malloc'] = () => {
@@ -101,6 +114,14 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        // allocates the room chained by `_this`, in the size of `len`.
+        p.append({
+            en: `
+            allocates the room chained by <strong>_this</strong>, in the size of <strong>len</strong>. <br/>
+            returns the address of the room allocated.
+            `
+        }[lang] ?? nil);
     }
 
     fun['free'] = () => {
@@ -124,6 +145,13 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            frees all the room chained by <strong>_this</strong>. <br/>
+            returns the address of <strong>_this</strong>.
+            ` 
+        }[lang] ?? nil);
     }
 
     return [fun, ['_', 'make', 'malloc', 'free']];

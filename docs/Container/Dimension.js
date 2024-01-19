@@ -46,6 +46,12 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
                 p.code(0, ';<br/>');
 
                 p
+                .code('word', 'char ', gu('0/C/type char'))
+                .code(0, 'end', gu('0/C/struct member'));
+
+                p.code(0, ';<br/>');
+
+                p
                 .code('word', 'struct ', gu('0/C/struct'))
                 .code('struct', 'ae2f_Dimension', '#board Dimension')
                 .code(0, '* ', gu('0/C/type *'))
@@ -56,6 +62,50 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, '};');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            provides the feature of managing the multidimensional array.
+            `
+        }[lang] ?? nil);
+
+        ((p) => {
+            p.tent('title', 'h2').set('depth');
+            p = p.tab('desc', 'div');
+            p.append({
+                en: "stands for the count of the parent above this structure."
+            }[lang] ?? nil);
+        })(p.tent('depth'));
+
+        ((p) => {
+            p.tent('title', 'h2').set('end');
+            p = p.tab('desc', 'div');
+
+            p.append({
+                en: "describes if this has a child."
+            }[lang] ?? nil);
+        })(p.tent('end'));
+
+        ((p) => {
+            p.tent('title', 'h2').set('pre');
+            p = p.tab('desc', 'div');
+
+            p.append({
+                en: "points the parent structure of this."
+            }[lang] ?? nil);
+        })(p.tent('pre'));
+
+        ((p) => {
+            p.tent('title', 'h2').set('c');
+            p = p.tab('desc', 'div');
+
+            p.append({
+                en: `
+                container for the value.<br/>
+                contains the array of pointer of its child provided end does not equals to zero.
+                `
+            }[lang] ?? nil);
+        })(p.tent('c'));
     }
 
     // struct ae2f_Dimension* ae2f_Dimension(struct ae2f_Dimension* _this, unsigned long long depth, unsigned long long* lengthArray);
@@ -98,6 +148,13 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            initialises the certain structure of <strong>_this</strong>. <br/>
+            receives the <strong>depth</strong>, and array of required length for each depth level as <strong>lengthArray</strong>.
+            `
+        }[lang] ?? nil)
     }
 
     // struct ae2f_Dimension* ae2f_Dimension_free(struct ae2f_Dimension* _this);
@@ -165,6 +222,13 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            points the child of <strong>_this</strong> in the depth level of <strong>depth</strong>.  <br/>
+            in each level of depth will read the <strong>posArray</strong> with index of <strong>depth</strong> as a position where the child has been estimated.
+            `
+        }[lang] ?? nil)
     }
 
     // struct ae2f_Dimension* ae2f_Dimension_lay(struct ae2f_Dimension* _this, unsigned long long length);
@@ -198,6 +262,13 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            iterates the end of the childs of <strong>_this</strong> and sets the array of <strong><a href='#board Dimension'>ae2f_Dimension</a></strong> with a count of <strong>length</strong>. <br/>
+            is could be called multiple times until it is <strong><a href="#board morph">morphed</a></strong>.
+            `
+        }[lang] ?? nil)
     }
 
     fun['morph'] = () => {
@@ -230,6 +301,13 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            iterates the end of the childs of <strong>_this</strong> and allocates the value with a length of <strong>length</strong>. <br/>
+            must be called once with <strong>_this</strong> which is not <strong><a href="#board morph">morphed</a></strong>.
+            `
+        }[lang] ?? nil);
     }
 
     // struct ae2f_Dimension* ae2f_Dimension_copy(struct ae2f_Dimension* _this, struct ae2f_Dimension* to);
@@ -263,6 +341,12 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');
         })(p.box('declares'));
+
+        p.append({
+            en: `
+            copies the value of <strong>_this</strong> and its child and paste in <strong>to</strong>.
+            `
+        }[lang] ?? nil);
     }
     return [fun, ['_', 'make', 'free', 'point', 'lay', 'morph', 'copy']];
 } // 덜 됨
