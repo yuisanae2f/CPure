@@ -1,0 +1,130 @@
+include('Component/box.js');
+include('Component/code.js');
+include('Component/array.js');
+
+docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
+    const
+    board = document.getElementById("board"),
+    gu = (th) => `https://yuisanae2f.github.io/YuiSanae2f/${args()[1] == '1' ? "index" : 'dark'}.html?${btoa(`${args()[0]} ${args()[1]} ${th}`)}`;
+
+    let c = {}, fun = {}, p;
+
+    fun['_'] = () => {
+        p = board.tent('Context', 'div');
+        p.tent('title', 'h1').set('Context');
+
+        p = p.tab('desc', 'div');
+        
+        ((p) => {
+            /**
+             *  struct ae2f_Context {
+                    struct ae2f_Dynamic c;
+                    unsigned long long len;
+                    unsigned long long _amp;
+                    unsigned long long _div;
+                };
+             */
+                p.code('word', 'struct ', gu('0/C/struct'));
+                p.code('struct', 'ae2f_Context ', '#board Context');
+                p.code('', '{');
+
+                ((p) => {
+                    p.code('word', 'struct ', gu('0/C/struct'));
+                    p.code('struct', 'ae2f_Dynamic ', getURL('Container/Dynamic'));
+                    p.code('', 'c', gu('0/C/struct member'));
+                    p.code('', ';<br/>');
+                    p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+                    p.code('word', 'long ', gu('0/C/type long/long'));
+                    p.code('word', 'long ', gu('0/C/type long/int'));
+                    p.code('', '_amp;<br/>', gu('0/C/struct member'));
+
+                    p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+                    p.code('word', 'long ', gu('0/C/type long/long'));
+                    p.code('word', 'long ', gu('0/C/type long/int'));
+                    p.code('', '_div;', gu('0/C/struct member'));
+                })(p.tab('_'));
+
+                p.code('', '};');
+        })(p.box('declares'));
+
+        c['ko0'] = '같은 범위 안에서 ';
+    }
+
+    // content
+    fun['make'] = () => {
+        p = board.tent('make', 'div');
+        p.tent('title', 'h1').set('ae2f_Context');
+
+        p = p.tab('desc', 'div');
+        ((p) => {
+            // struct ae2f_Context* ae2f_Context(struct ae2f_Context* _this);
+            p.code('word', 'struct ', gu('0/C/struct'));
+            p.code('class', 'ae2f_Context', '#board Context');
+            p.code(0, '* ', gu('0/C/type *'));
+            p.code('function', 'ae2f_Context', '#board make');
+            p.code(0, '(');
+
+            p.code('word', 'struct ', gu('0/C/struct'));
+            p.code('class', 'ae2f_Context', '#board Context');
+            p.code(0, '* ', gu('0/C/type *'));
+            p.code('#', '_this', gu('0/C/function param'));
+
+            p.code(0, ');');
+        })(p.box('declares'));
+    }
+
+    fun['malloc'] = () => {
+        p = board.tent('malloc', 'div');
+        p.tent('title', 'h1').set('ae2f_Context_malloc');
+
+        p = p.tab('desc', 'div');
+
+        // struct ae2f_Dynamic* ae2f_Context_malloc(struct ae2f_Context* _this, unsigned long long len);
+        ((p) => {
+            p.code('word', 'struct ', gu('0/C/struct'));
+            p.code('class', 'ae2f_Context', '#board Context');
+            p.code(0, '* ', gu('0/C/type *'));
+            p.code('function', 'ae2f_Context_malloc', '#board malloc');
+            p.code(0, '(');
+
+            p.code('word', 'struct ', gu('0/C/struct'));
+            p.code('class', 'ae2f_Context', '#board Context');
+            p.code(0, '* ', gu('0/C/type *'));
+            p.code('#', '_this', gu('0/C/function param'));
+
+            p.code(0, ', ');
+
+            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+            p.code('word', 'long ', gu('0/C/type long'));
+            p.code('word', 'long ', gu('0/C/type int'));
+            p.code('#', 'len', gu('0/C/function param'));
+
+            p.code(0, ');');
+        })(p.box('declares'));
+    }
+
+    fun['free'] = () => {
+        p = board.tent('free', 'div');
+        p.tent('title', 'h1').set('ae2f_Context_free');
+
+        p = p.tab('desc', 'div');
+
+        // struct ae2f_Context* ae2f_Context_free(struct ae2f_Context* _this);
+        ((p) => {
+            p.code('word', 'struct ', gu('0/C/struct'));
+            p.code('class', 'ae2f_Context', '#board Context');
+            p.code(0, '* ', gu('0/C/type *'));
+            p.code('function', 'ae2f_Context_free', '#board free');
+            p.code(0, '(');
+
+            p.code('word', 'struct ', gu('0/C/struct'));
+            p.code('class', 'ae2f_Context', '#board Context');
+            p.code(0, '* ', gu('0/C/type *'));
+            p.code('#', '_this', gu('0/C/function param'));
+
+            p.code(0, ');');
+        })(p.box('declares'));
+    }
+
+    return [fun, ['_', 'make', 'malloc', 'free']];
+};

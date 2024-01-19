@@ -4,13 +4,14 @@ include('Component/array.js');
 include('Component/getASCII.js');
 
 docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
-    const board = document.getElementById("board");
-    let c = {}, fun = {},
-    p = board.tent('Dynamic', 'div');
+    const 
+    board = document.getElementById("board");
+    let c = {}, fun = {}, p;
 
     const gu = (th) => `https://yuisanae2f.github.io/YuiSanae2f/${args()[1] == '1' ? "index" : 'dark'}.html?${btoa(`${args()[0]} ${args()[1]} ${th}`)}`;
 
     fun['_'] = () => {
+        p = board.tent('Dynamic', 'div');
         p.tent('title', 'h1').set('Dynamic');
 
         c = [{}, {}, {}, {}];
@@ -39,13 +40,13 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         p.code('struct', 'ae2f_Dynamic ', '#board Dynamic');
         p.code('', '{<br/>');
         p = p.tab('tab');
-        p.code('word', 'union ', gu("0/C/union"));
+        p.code('word', 'union ', gu("0/C/struct union"));
         p.code('class', 'ae2f_Unit ', getURL('Container/Unit'));
-        p.code('', 'c;<br/>');
-        p.code('word', 'unsigned ', gu('0/C/unsigned'));
-        p.code('word', 'long ', gu("0/C/long"));
-        p.code('word', 'long ', gu("0/C/long int"));
-        p.code('', 'len;');
+        p.code('', 'c;<br/>', gu('0/C/struct member'));
+        p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+        p.code('word', 'long ', gu("0/C/type long/long"));
+        p.code('word', 'long ', gu("0/C/type long/int"));
+        p.code('', 'len;', gu('0/C/struct member'));
         p = board.tent('Dynamic desc code');
         p.code('', '};');
     }
@@ -59,11 +60,11 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         p.code('', ';<br/>');
         p.code('fun', 'ae2f_Dynamic', '#board make');
         p.code('', '(');
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', 'a', '#board make desc code a');
         p.code('', ', ');
         
-        let i = p.tent('len', 'input');
+        let i = p.tent('len', 'input', gu('0/C/function member'));
         i.pos().type = 'number';
 
         p.code('', ');');
@@ -90,21 +91,21 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             // struct ae2f_Dynamic* ae2f_Dynamic(struct ae2f_Dynamic* _this, unsigned long long len);
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic', "#board Dynamic");
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
 
             p.code('fun', 'ae2f_Dynamic', '#board make');
             p.code('', '(');
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic', "#board Dynamic");
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
 
             p.code('pre', '_this', gu('0/C/function param'));
             p.code('', ', ');
 
-            p.code('word', 'unsigned ', gu('0/C/unsigned'));
-            p.code('word', 'long ', gu("0/C/long long"));
-            p.code('word', 'long ', gu("0/C/long int"));
+            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+            p.code('word', 'long ', gu("0/C/type long/long"));
+            p.code('word', 'long ', gu("0/C/type long/int"));
 
             p.code('pre', 'len', gu('0/C/function param'));
 
@@ -155,7 +156,7 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         p.code('', ';<br/>');
         p.code('fun', 'ae2f_Dynamic_', `#board make_`);
         p.code('', '(');
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', 'a', `#board ${pp} desc code a`);
         p.code('', ', ');
         
@@ -177,7 +178,7 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             // struct ae2f_Dynamic* ae2f_Dynamic_(struct ae2f_Dynamic* _this, void* val, unsigned long long len);
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic', "#board Dynamic");
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
 
             p.code('fun', 'ae2f_Dynamic_', '#board make_');
 
@@ -185,20 +186,20 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic', "#board Dynamic");
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', '_this', gu("0/C/function param"));
 
             p.code('', ', ');
 
-            p.code('word', 'void', gu('0/C/void'));
-            p.code('', '* ', gu('0/C/* 0/void'));
+            p.code('word', 'void', gu('0/C/type void'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', 'val', gu("0/C/function param"));
 
             p.code('', ', ');
 
             p.code('word', 'unsigned ', gu("0/C/unsigned"));
-            p.code('word', 'long ', gu("0/C/long long"));
-            p.code('word', 'long ', gu('0/C/long int'));
+            p.code('word', 'long ', gu("0/C/type long/long"));
+            p.code('word', 'long ', gu('0/C/type long/int'));
             p.code('pre', 'len', gu("0/C/function param"));
 
             p.code("", ');');
@@ -255,18 +256,18 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
 
         p.code('fun', 'ae2f_Dynamic_free', '#board free');
         p.code('', '(');
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', 'a', gu('0/var'));
         p.code('', ");<br/><br/>");
 
         p.code('word', 'struct ', gu('0/C/struct'));
         p.code('class', 'ae2f_Dynamic ', '#board Dynamic title');
         p.tent('b', 'span').code('var', 'b ', gu('0/var'));
-        p.code('', '= ', gu('0/C/='));
+        p.code('', '= ', gu('0/C/operator ='));
 
         p.code('fun', 'ae2f_Dynamic_copy', '#board copy');
         p.code('', '(');
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', 'a', gu('0/var'));
         p.code('', ');');
     }
@@ -285,7 +286,7 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic', '#board Dynamic');
-            p.code('', '*', gu('0/C/* 0'));
+            p.code('', '*', gu('0/C/type *'));
 
             p.code('pre', '_this', gu('0/C/function param'));
 
@@ -348,7 +349,7 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
 
         p.code('fun', 'ae2f_Dynamic_free', '#board free');
         p.code('', '(');
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', 'a', gu('0/var'));
         p.code('', ");");
     }
@@ -361,13 +362,13 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         ((p) => {
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Dynamic', '#board Dynamic');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('fun', 'ae2f_Dynamic_free', '#board free');
             p.code('', '(');
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Dynamic', '#board Dynamic');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
 
             p.code('pre', '_this', gu('0/C/function param'));
 
@@ -403,7 +404,7 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         p = p.tent(id, 'span');
         p.code('fun', 'ae2f_Dynamic_re', '#board re');
         p.code('', '(');
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', 'a', gu('0/var'));
         p.code('', ', ');
         
@@ -420,20 +421,20 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         ((p) => {
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic', '#board Dynamic');
-            p.code('', '* ', gu("0/C/* 0"));
+            p.code('', '* ', gu("0/C/type *"));
             p.code('fun', 'ae2f_Dynamic_re', '#board re');
 
             p.code('', '(');
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic', '#board Dynamic');
-            p.code('', '* ', gu("0/C/* 0"));
+            p.code('', '* ', gu("0/C/type *"));
             p.code('pre', '_this', gu('0/C/function param'));
             
             p.code('', ', ');
-            p.code('word', 'unsigned ', gu('0/C/unsigned'));
-            p.code('word', 'long ', gu('0/C/long long'));
-            p.code('word', 'long ', gu('0/C/long int'));
+            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+            p.code('word', 'long ', gu('0/C/type long/long'));
+            p.code('word', 'long ', gu('0/C/type long/int'));
             p.code('pre', 'len', gu('0/C/function param'));
 
             p.code('', ');');
@@ -493,7 +494,7 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         p = p.tent(id, 'span');
         p.code('fun', 'ae2f_Dynamic_re_', `#board re_`);
         p.code('', '(');
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', 'a', `#board ${pp} desc code a`);
         p.code('', ', ');
         
@@ -514,27 +515,27 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         ((p) => {
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Dynamic', '#board Dynamic')
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             
             p.code('fun', 'ae2f_Dynamic_re_', '#board re_');
             p.code('', '(');
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Dynamic', '#board Dynamic');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', '_this', gu('0/C/function param'));
 
             p.code('', ', ');
 
-            p.code('word', 'void', gu('0/C/void'));
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('word', 'void', gu('0/C/type void'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', 'arr', gu('0/C/function param'));
 
             p.code('', ', ');
 
             p.code('word', 'unsigned ', gu('0/C/unsigned'));
-            p.code('word', 'long ', gu('0/C/long long'));
-            p.code('word', 'long ', gu('0/C/long int'));
+            p.code('word', 'long ', gu('0/C/type long/long'));
+            p.code('word', 'long ', gu('0/C/type long/int'));
             p.code('pre', 'len', gu('0/C/function param'));
 
             p.code('', ');');
@@ -603,7 +604,7 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         p = p.tab('desc', 'div');
 
         ((p) => {
-            p.code('word', 'char ', gu('0/C/char'));
+            p.code('word', 'char ', gu('0/C/type char'));
             p.code('fun', 'ae2f_Dynamic_weigh', '#board weigh');
             p.code('', '(');
 
@@ -674,29 +675,33 @@ docs['Container/Dynamic'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         p = p.tab('desc');
 
         ((p) => {
-            p.code('word', 'unsigned ', gu('0/C/unsigned'));
-            p.code('word', 'long ', gu('0/C/long long'));
-            p.code('word', 'long ', gu('0/C/long int'));
+            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+            p.code('word', 'long ', gu('0/C/type long/long'));
+            p.code('word', 'long ', gu('0/C/type long/int'));
 
             p.code('fun', 'ae2f_Dynamic_puts', '#board puts');
             p.code('', '(');
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic', '#board Dynamic');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', '_this', gu('0/C/function param'));
             p.code('', ', ');
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Dynamic ', '#board Dynamic');
-            p.code('pre', '_this', gu('0/C/function param'));
+            p.code('pre', 'another', gu('0/C/function param'));
 
             p.code('', ');');
         })(p.box('declares'));
 
         c = {};
-        c['ko'] = "메모리를 새로 할당하지 않고 기존 메모리에 원하는 값을 새로 대입합니다.";
-        c['en'] = 'sets the value of the existing memory.';
-        p.append(c[lang] ?? nil);
+        c['ko0'] = "메모리를 새로 할당하지 않고 기존 메모리에 원하는 값을 새로 대입합니다.";
+        c['en0'] = 'sets the value of the existing memory.';
+
+        c['ko1'] = '<strong>_this</strong>에 <strong>another</strong>의 값을 복사합니다.';
+        c['en1'] = 'copies the value of <strong>another</strong> to <strong>_this</strong>.';
+        p.append((c[lang + '0'] ?? nil) + '<br/>');
+        p.append(c[lang + '1'] ?? nil);
     }
     return [fun, ['_', 'make', 'make_', 'copy', 'free', 're', 're_', 'weigh', 'puts']];
 }

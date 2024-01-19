@@ -23,4 +23,5 @@ docs['Container'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
     c = {};
     c["ko"] = "두 데이터를 하나의 관계로 묶습니다.";
     c["en"] = "binds two data in a structure.";
+    p.tab('desc', 'div').append((c[lang] ?? nil));
 }

@@ -10,6 +10,7 @@ HTMLElement.prototype.code = function(type, code, link = '') {
     colour["def"] = colour["defined"] = "rgb(200,180,250)";
     colour["//"] = "rgb(10,100,10)";
     colour["string"] = colour["str"] = "rgb(200,120,120)";
+    colour['num'] = 'rgb(190,255,190)';
     
     rtn.style.color = colour[type] ?? 'rgb(180,180,180)';
     rtn.innerHTML = code;
@@ -20,9 +21,10 @@ HTMLElement.prototype.code = function(type, code, link = '') {
     }
     this.appendChild(rtn);
 
-    return rtn;
+    return this;
 }
 
 tent.prototype.code = function(type = '', code, link = '') {
-    return this.pos().code(type, code, link);
+    this.pos().code(type, code, link)
+    return this;
 }

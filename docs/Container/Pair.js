@@ -4,13 +4,14 @@ include('Component/array.js');
 include('Component/getASCII.js');
 
 docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
-    const board = document.getElementById("board");
-    let c = {};
-    let p = board.tent('Pair', 'div');
-    let fun = {};
-    const gu = (th) => `https://yuisanae2f.github.io/YuiSanae2f/${args()[1] == '1' ? "index" : 'dark'}.html?${btoa(`${args()[0]} ${args()[1]} ${th}`)}`;
+    const 
+    board = document.getElementById("board"),
+    gu = (th) => `https://yuisanae2f.github.io/YuiSanae2f/${args()[1] == '1' ? "index" : 'dark'}.html?${btoa(`${args()[0]} ${args()[1]} ${th}`)}`;
+
+    let c = {}, p,  fun = {};
 
     function struct(wh) {
+
         wh.code('word', 'struct ', gu('0/C/struct'));
         wh.code('class', 'ae2f_Pair ', '#board Pair');
         wh.code('', '{<br/>');
@@ -18,15 +19,16 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         ((wh) => {
             wh.code('word', 'struct ', gu('0/C/struct'));
             wh.code('struct', 'ae2f_Dynamic ', getURL('Container/Dynamic'));
-            wh.code('', 'c;<br/>');
+            wh.code('', 'c;<br/>', gu('0/C/struct member'));
             wh.code('word', 'struct ', gu('0/C/struct'));
             wh.code('struct', 'ae2f_Unit ', getURL('Container/Unit'));
-            wh.code('', 'val;<br>');
+            wh.code('', 'val;<br>', gu('0/C/struct member'));
         })(wh.tab('tab'));
 
         wh.code('', '};');
     }
     fun['_'] = () => {
+        p = board.tent('Pair', 'div');
         p.tent('title', 'h1').set('Pair');
         p = p.tab('desc');
 
@@ -108,7 +110,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         p.code('fun', 'ae2f_Pair', '#board make');
         p.code('', '(');
 
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', name);
         p.code('', ', ');
 
@@ -127,13 +129,13 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         ((p) => {
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('fun', 'ae2f_Pair', '#board make');
             p.code('', '(');
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', '_this', gu('0/C/function param'));
             p.code('', ', ');
 
@@ -207,35 +209,35 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             // struct ae2f_Pair* ae2f_Pair_(struct ae2f_Pair* _this, void* key, unsigned long long kLen, void* val, unsigned long long vLen);
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('fun', 'ae2f_Pair_', '#board make_');
             p.code('', '(');
 
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', '_this', gu('0/C/function param'));
             p.code('', ', ');
 
-            p.code('word', 'void', gu('0/C/void'));
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('word', 'void', gu('0/C/type void'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', 'key', gu('0/C/function param'));
             p.code('', ', ');
 
-            p.code('word', 'unsigned ', gu('0/C/unsigned'));
-            p.code('word', 'long ', gu('0/C/long long'));
-            p.code('word', 'long ', gu('0/C/long int'));
+            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+            p.code('word', 'long ', gu('0/C/type long/long'));
+            p.code('word', 'long ', gu('0/C/type long/int'));
             p.code('pre', 'kLen', gu('0/C/function param'));
             p.code('', ', ');
 
-            p.code('word', 'void', gu('0/C/void'));
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('word', 'void', gu('0/C/type void'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', 'val', gu('0/C/function param'));
             p.code('', ', ');
 
-            p.code('word', 'unsigned ', gu('0/C/unsigned'));
-            p.code('word', 'long ', gu('0/C/long long'));
-            p.code('word', 'long ', gu('0/C/long int'));
+            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
+            p.code('word', 'long ', gu('0/C/type long/long'));
+            p.code('word', 'long ', gu('0/C/type long/int'));
             p.code('pre', 'vLen', gu('0/C/function param'));
 
             p.code('', ');');
@@ -254,7 +256,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         const p = wh.tent(id, 'span');
         p.code('fun', 'ae2f_Pair_free', '#board free');
         p.code('', '(');
-        p.code('', '&', gu('0/C/& 0'));
+        p.code('', '&', gu('0/C/operator &/0'));
         p.code('var', name);
         p.code('', ');');
     }
@@ -267,13 +269,13 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         ((p) => {
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code("class", 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu("0/C/* 0"));
+            p.code('', '* ', gu("0/C/type *"));
             p.code('fun', 'ae2f_Pair_free', '#board free');
             p.code(2, '(');
             
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code("class", 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu("0/C/* 0"));
+            p.code('', '* ', gu("0/C/type *"));
             p.code('pre', '_this', gu('0/C/function param'));
 
             p.code('', ');');
@@ -306,7 +308,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
 
         // char ae2f_Pair_weigh(struct ae2f_Pair p1, struct ae2f_Dynamic p2, char where);
         ((p) => {
-            p.code('word', 'char ', gu('0/C/char'));
+            p.code('word', 'char ', gu('0/C/type char'));
             p.code('fun', 'ae2f_Pair_weigh', '#board weigh');
             p.code('', '(');
             p.code('word', 'struct ', gu('0/C/struct'));
@@ -317,7 +319,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             p.code('class', 'ae2f_Dynamic ', getURL('Container/Dynamic'));
             p.code('pre', 'p2', gu('0/C/function param'));
             p.code('', ', ');
-            p.code('word', 'char ', gu('0/C/char'));
+            p.code('word', 'char ', gu('0/C/type char'));
             p.code('pre', 'where', gu('0/C/function param'));
             p.code('', ');');
 
@@ -345,10 +347,10 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             p.code('', '(');
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('struct', 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', '_this', gu('0/C/function param'));
             p.code('', ', ');
-            p.code('word', 'char ', gu('0/C/char'));
+            p.code('word', 'char ', gu('0/C/type char'));
             p.code('pre', 'where', gu('0/C/function param'));
             p.code('', ');');
         })(p.box('declares'))
@@ -375,13 +377,13 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         ((p) => {
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('fun', 'ae2f_Pair_set', '#board set');
             p.code(0, '(');
             
             p.code('word', 'struct ', gu('0/C/struct'));
             p.code('class', 'ae2f_Pair', '#board Pair');
-            p.code('', '* ', gu('0/C/* 0'));
+            p.code('', '* ', gu('0/C/type *'));
             p.code('pre', '_this', gu('0/C/function param'));
             p.code(0, ', ');
 
@@ -390,7 +392,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             p.code('pre', 'val', gu('0/C/function param'));
             p.code(0, ', ');
 
-            p.code('word', 'char ', gu('0/C/char'));
+            p.code('word', 'char ', gu('0/C/type char'));
             p.code('pre', 'where', gu('0/C/function param'));
 
             p.code(0, ');');
@@ -400,7 +402,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
         c['ko0'] = ""; c["ko1"] = "의 게터 함수입니다.";
         c['en0'] = "is the getter for "; c['en1'] = '.';
 
-        c['ko2'] = "<strong>where</strong>의 값에 따라 <strong>_this</strong>의 멤버의 값을 <strong>val</strong>로 바꿉니다..";
+        c['ko2'] = "<strong>where</strong>의 값에 따라 <strong>_this</strong>의 멤버의 값을 <strong>val</strong>로 바꿉니다.";
         c['en2'] = "changes the value at which <strong>where</strong> decides to get among the members of <strong>_this</strong> to <strong>val</strong>.";
 
         p.append(c[`${lang}0`] ?? nil);
