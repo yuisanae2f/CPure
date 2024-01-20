@@ -63,7 +63,11 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             is an unordered map similar to the hashmap. <br/>
             but it is not the same. <br/><br/>
             
-            provides the map, which has a key.`
+            provides the map, which has a key.`,
+
+            ko: `
+            key-value 형태의 맵을 제공합니다.
+            `
         }[lang] ?? nil);
     }
 
@@ -94,6 +98,10 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
         p.append({
             en: `
             initialies the value from <strong>_this</strong>.
+            `,
+
+            ko: `
+            구조체 <strong>_this</strong>의 초기화 함수입니다.
             `
         }[lang] ?? nil);
     }
@@ -133,6 +141,11 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             en: `
             returns the pointer of the value where the <strong>key</strong> matches the key from the structure, <strong>_this</strong>.   <br/>
             returns zero when <strong>key</strong> has not been found.
+            `,
+
+            ko: `
+            <strong>_this</strong>에서 <strong>key</strong>와 일치하는 key값을 가지는 값을 찾아 반환합니다. <br/>
+            key값을 찾지 못할 경우 0을 반환합니다.
             `
         }[lang] ?? nil);
     }
@@ -180,6 +193,11 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             copies of the pair of value of <strong>k</strong> and <strong>v</strong> and adds this map <strong>_this</strong>.  <br/>
             Since <a href="${getURL('Container/Dynamic')}"><strong>dynamics</strong></a> as parametres <a href="${getURL('Container/Dynamic copy')}">has been duplicated</a>,
             still the original ones are need to be freed after the map has been freed.
+            `,
+
+            ko: `
+            <strong>_this</strong>에 <strong>k</strong>, <strong>v</strong>를 복사하여 쌍으로써 추가합니다. <br/>
+            기존 값의 복사본을 추가하므로, <strong>_this</strong>의 메모리를 해제하여도 기존 값의 메모리는 남아 있을 것입니다.
             `
         }[lang] ?? nil);
     }
@@ -220,6 +238,11 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             en: `
             deletes the value in <strong>wh</strong> as a pointer of value which belongs to <strong>_this</strong>.  <br/>
             pointer of value could be found via <strong><a href="#board at">ae2f_Map_at</a></strong>.
+            `,
+
+            ko: `
+            <strong>_this</strong>에 등록되어 있던 값 중 하나의 포인터 <strong>wh</strong>를 받아 해당 값을 <strong>_this</strong>로부터 제거합니다. <br/>
+            <strong><a href="#board at">at</a></strong>에서 <strong>wh</strong>의 위치를 얻을 수 있습니다.
             `
         }[lang] ?? nil);
     }
@@ -251,6 +274,10 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
         p.append({
             en: `
             will reset the map <strong>_this</strong>.
+            `,
+
+            ko: `
+            <strong>_this</strong>의 메모리를 해제합니다.
             `
         }[lang] ?? nil);
     }

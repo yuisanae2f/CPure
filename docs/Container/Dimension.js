@@ -66,6 +66,10 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
         p.append({
             en: `
             provides the feature of managing the multidimensional array.
+            `,
+
+            ko: `
+            다차원 배열을 지원합니다.
             `
         }[lang] ?? nil);
 
@@ -73,7 +77,8 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p.tent('title', 'h2').set('depth');
             p = p.tab('desc', 'div');
             p.append({
-                en: "stands for the count of the parent above this structure."
+                en: "stands for the count of the parent above this structure.",
+                ko: `해당 구조체의 깊이 레벨을 표시합니다.`
             }[lang] ?? nil);
         })(p.tent('depth'));
 
@@ -82,7 +87,8 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p = p.tab('desc', 'div');
 
             p.append({
-                en: "describes if this has a child."
+                en: "describes if this has a child.",
+                ko: `해당 구조체가 자식을 가지는가 여부를 표시합니다.`
             }[lang] ?? nil);
         })(p.tent('end'));
 
@@ -91,7 +97,8 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p = p.tab('desc', 'div');
 
             p.append({
-                en: "points the parent structure of this."
+                en: "points the parent structure of this.",
+                ko: `해당 구조체의 부모의 위치를 가리킵니다.`
             }[lang] ?? nil);
         })(p.tent('pre'));
 
@@ -102,7 +109,12 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p.append({
                 en: `
                 container for the value.<br/>
-                contains the array of pointer of its child provided end does not equals to zero.
+                contains the array of pointer of its child provided <strong><a href="#board Dimension desc end">end</a></strong> does not equals to zero.
+                `,
+
+                ko: `
+                실제 값의 보관 주소입니다. <br/>
+                <strong><a href="#board Dimension desc end">end</a></strong>가 0이 아닐 경우 자식의 위치를 가리킵니다.
                 `
             }[lang] ?? nil);
         })(p.tent('c'));
@@ -153,6 +165,11 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             en: `
             initialises the certain structure of <strong>_this</strong>. <br/>
             receives the <strong>depth</strong>, and array of required length for each depth level as <strong>lengthArray</strong>.
+            `,
+
+            ko: `
+            구조체 <strong>_this</strong>의 초기화 함수입니다. <br/>
+            최대 깊이 레벨 <strong>depth</strong>와 각 깊이 레벨에서의 길이 배열 <strong>lengthArray</strong>를 받습니다.
             `
         }[lang] ?? nil)
     }
@@ -180,6 +197,16 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ');');  
         })(p.box('declares'));
+
+        p.append({
+            ko: `
+            <strong>_this</strong>의 메모리를 전부 해제합니다.
+            `,
+            en: `
+            free the memory of <strong>_this</strong>.
+            will iterate its child and also free them.
+            `
+        }[lang] ?? nil)
     }
 
     // struct ae2f_Dimension* ae2f_Dimension_point(struct ae2f_Dimension* _this, unsigned long long depth, unsigned long long* posArray);
@@ -227,6 +254,11 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             en: `
             points the child of <strong>_this</strong> in the depth level of <strong>depth</strong>.  <br/>
             in each level of depth will read the <strong>posArray</strong> with index of <strong>depth</strong> as a position where the child has been estimated.
+            `,
+
+            ko: `
+            <strong>_this</strong> <strong>depth</strong>의 깊이에 있는 요소를 참조합니다. <br/>
+            각 깊이 레벨에서 <strong>posArray</strong> 배열에서 찾아갈 위치를 참조합니다. <br/>
             `
         }[lang] ?? nil)
     }
@@ -267,6 +299,11 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             en: `
             iterates the end of the childs of <strong>_this</strong> and sets the array of <strong><a href='#board Dimension'>ae2f_Dimension</a></strong> with a count of <strong>length</strong>. <br/>
             is could be called multiple times until it is <strong><a href="#board morph">morphed</a></strong>.
+            `,
+
+            ko: `
+            <strong>_this</strong>의 자식 끝을 순회하여 새로이 <strong><a href='#board Dimension'>ae2f_Dimension</a></strong>의 배열을 <strong>length</strong>의 개수만큼 할당하여 초기화합니다. <br/>
+            <strong><a href="#board morph">morph</a></strong>가 호출되기 전까지 여러 번 호출하여도 무방합니다.
             `
         }[lang] ?? nil)
     }
@@ -306,6 +343,11 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             en: `
             iterates the end of the childs of <strong>_this</strong> and allocates the value with a length of <strong>length</strong>. <br/>
             must be called once with <strong>_this</strong> which is not <strong><a href="#board morph">morphed</a></strong>.
+            `,
+
+            ko: `
+            <strong>_this</strong>의 자식의 끝을 전부 순회하여 <strong>length</strong>의 길이로 메모리를 할당합니다. <br/>
+            <strong><a href="#board morph">morph</a></strong>가 콜백되지 않은 구조체에 사용하십시오.
             `
         }[lang] ?? nil);
     }
@@ -345,6 +387,10 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
         p.append({
             en: `
             copies the value of <strong>_this</strong> and its child and paste in <strong>to</strong>.
+            `,
+
+            ko: `
+            <strong>to</strong>의 위치로 <strong>_this</strong>의 값을 복사합니다.
             `
         }[lang] ?? nil);
     }

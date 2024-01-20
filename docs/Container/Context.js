@@ -49,7 +49,10 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
         c ={
             en0: "is the binder for the temporary dynamic allocation on scope.",
-            en1: "could be used when you want to manage temporary dynamic allocation in the same scope."
+            en1: "could be used when you want to manage temporary dynamic allocation in the same scope.",
+
+            ko0: "메모리를 일괄적으로 해제하는 기능을 제공합니다.",
+            ko1: ""
         };
 
         p.append((c[lang + 0] ?? nil) + '<br/>');
@@ -80,7 +83,8 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
         // initialises _this ready for action.
         c = {
-            en: 'initialises <strong>_this</strong> ready for action.'
+            en: 'initialises <strong>_this</strong> ready for action.',
+            ko: '<strong>_this</strong>의 값을 초기화시킵니다.'
         }
 
         p.append(c[lang] ?? nil);
@@ -120,6 +124,11 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             en: `
             allocates the room chained by <strong>_this</strong>, in the size of <strong>len</strong>. <br/>
             returns the address of the room allocated.
+            `,
+
+            ko: `
+            <strong>len</strong> 크기의 바이트로 메모리를 할당하여 <strong>_this</strong>에 종속시킵니다. <br/>
+            할당된 포인터의 정보를 반환합니다.
             `
         }[lang] ?? nil);
     }
@@ -150,7 +159,12 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             en: `
             frees all the room chained by <strong>_this</strong>. <br/>
             returns the address of <strong>_this</strong>.
-            ` 
+            `,
+
+            ko: `
+            <strong>_this</strong>에서 할당한 메모리를 전부 해제합니다. <br/>
+            <strong>_this</strong>의 포인터를 반환합니다.
+            `
         }[lang] ?? nil);
     }
 

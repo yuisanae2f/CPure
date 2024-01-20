@@ -136,6 +136,10 @@ docs['Container/Unit'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             en: `
             is the slicer for a pointer. <br/>
             has members share their data each other.
+            `,
+
+            ko: `
+            포인터의 형태를 변환합니다.
             `
         }[lang] ?? nil);
     }
