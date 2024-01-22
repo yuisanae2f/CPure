@@ -93,3 +93,6 @@ printf("%s", p.val);		// It's just another value!
 
 ae2f_Pair_free(&p);
 ```
+
+## struct ae2f_Pair ae2f_Pair_copy(struct ae2f_Pair* _this);
+returns the independent copy of given pointer of `ae2f_Pair` as `_this`.

@@ -20,8 +20,8 @@ AE2F_CPP_PREFIX AE2F struct ae2f_Dice {
     int mti;
 };
 
-AE2F_CPP_PREFIX AE2F struct ae2f_Dice* ae2f_Dice_init(struct ae2f_Dice* _this, unsigned long s);
-AE2F_CPP_PREFIX AE2F struct ae2f_Dice* ae2f_Dice_init_(struct ae2f_Dice* _this, unsigned long* seed, int len);
+AE2F_CPP_PREFIX AE2F struct ae2f_Dice* ae2f_Dice(struct ae2f_Dice* _this, unsigned long s);
+AE2F_CPP_PREFIX AE2F struct ae2f_Dice* ae2f_Dice_(struct ae2f_Dice* _this, unsigned long* seed, int len);
 AE2F_CPP_PREFIX AE2F unsigned long ae2f_Dice_int32(struct ae2f_Dice* _this);
 AE2F_CPP_PREFIX AE2F long ae2f_Dice_int31(struct ae2f_Dice* _this);
 AE2F_CPP_PREFIX AE2F double ae2f_Dice_real(struct ae2f_Dice* _this);

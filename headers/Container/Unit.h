@@ -16,23 +16,28 @@
 #endif // AE2F_CPP
 #endif // !AE2F_CPP_PREFIX
 
-AE2F_CPP_PREFIX AE2F union ae2f_Unit {
+#include <stdint.h>
+
+union ae2f_Unit {
 	void* raw;
 
-	char* bt1;
-	unsigned char* ubt1;
+	int8_t* bt1;
+	uint8_t* ubt1;
 
-	short* bt2;
-	unsigned short* ubt2;
+	int16_t* bt2;
+	uint16_t* ubt2;
 
-	int* bt4;
-	unsigned int* ubt4;
+	int32_t* bt4;
+	uint32_t* ubt4;
 
-	long long* bt8;
-	unsigned long long* ubt8;
+	int64_t* bt8;
+	uint64_t* ubt8;
 
-	long long num;
-	unsigned long long unum;
+	int64_t num;
+	uint64_t unum;
+
+	float* rFloat;
+	double* rDouble;
 };
 
 #endif // !AE2F_UNIT

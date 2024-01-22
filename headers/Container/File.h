@@ -13,18 +13,18 @@
 #ifdef _INC_STDIO
 #define AE2F_CONTAINER_FILE
 
-AE2F_CPP_PREFIX AE2F struct ae2f_File {
+struct ae2f_File {
 	const char* path;
-	unsigned long long len;
-	unsigned long long off;
-	FILE* fp; char mode;
+	uint64_t len;
+	uint64_t off;
+	FILE* fp; int8_t mode;
 };
 
 AE2F_CPP_PREFIX AE2F struct ae2f_File* ae2f_File(struct ae2f_File* _this, const char* path);
 AE2F_CPP_PREFIX AE2F struct ae2f_File* ae2f_File_create(struct ae2f_File* _this);
-AE2F_CPP_PREFIX AE2F struct ae2f_File* ae2f_File_open(struct ae2f_File* _this, char mode);
-AE2F_CPP_PREFIX AE2F unsigned long long ae2f_File_read(struct ae2f_File* _this, struct ae2f_Dynamic* buff);
-AE2F_CPP_PREFIX AE2F unsigned long long ae2f_File_write(struct ae2f_File* _this, struct ae2f_Dynamic buff);
+AE2F_CPP_PREFIX AE2F struct ae2f_File* ae2f_File_open(struct ae2f_File* _this, int8_t mode);
+AE2F_CPP_PREFIX AE2F uint64_t ae2f_File_read(struct ae2f_File* _this, struct ae2f_Dynamic* buff);
+AE2F_CPP_PREFIX AE2F uint64_t ae2f_File_write(struct ae2f_File* _this, struct ae2f_Dynamic buff);
 AE2F_CPP_PREFIX AE2F struct ae2f_File* ae2f_File_close(struct ae2f_File* _this);
 
 #endif // _INC_STDIO
