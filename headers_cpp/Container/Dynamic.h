@@ -152,9 +152,6 @@ namespace ae2f {
 			AE2F Linked(fun<Container::Dynamic>::getter* g);
 
 			AE2F Linked(struct ae2f_Dynamic origin);
-
-			AE2F Linked(Dynamic d);
-			AE2F Linked(Dynamic* d);
 		};
 	}
 }
