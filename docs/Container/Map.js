@@ -34,23 +34,17 @@ docs['Container/Map'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
                 .code(0, ';<br/>');
     
                 p
-                .code('word', 'unsigned ', gu('0/C/type unsigned'))
-                .code('word', 'long ', gu('0/C/type long'))
-                .code('word', 'long ', gu('0/C/type int'))
+                .code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
                 .code(0, 'len', gu('0/C/struct members'))
                 .code(0, ';<br/>');
     
                 p
-                .code('word', 'unsigned ', gu('0/C/type unsigned'))
-                .code('word', 'long ', gu('0/C/type long'))
-                .code('word', 'long ', gu('0/C/type int'))
+                .code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
                 .code(0, '_amp', gu('0/C/struct members'))
                 .code(0, ';<br/>');
     
                 p
-                .code('word', 'unsigned ', gu('0/C/type unsigned'))
-                .code('word', 'long ', gu('0/C/type long'))
-                .code('word', 'long ', gu('0/C/type int'))
+                .code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
                 .code(0, '_div', gu('0/C/struct members'))
                 .code(0, ';<br/>');
             })(p.tab('ae2f_Map'));

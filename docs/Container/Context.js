@@ -33,14 +33,10 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
                     p.code('struct', 'ae2f_Dynamic ', getURL('Container/Dynamic'));
                     p.code('', 'c', gu('0/C/struct member'));
                     p.code('', ';<br/>');
-                    p.code('word', 'unsigned ', gu('0/C/type unsigned'));
-                    p.code('word', 'long ', gu('0/C/type long/long'));
-                    p.code('word', 'long ', gu('0/C/type long/int'));
+                    p.code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
                     p.code('', '_amp;<br/>', gu('0/C/struct member'));
 
-                    p.code('word', 'unsigned ', gu('0/C/type unsigned'));
-                    p.code('word', 'long ', gu('0/C/type long/long'));
-                    p.code('word', 'long ', gu('0/C/type long/int'));
+                    p.code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
                     p.code('', '_div;', gu('0/C/struct member'));
                 })(p.tab('_'));
 
@@ -111,9 +107,7 @@ docs['Container/Context'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
 
             p.code(0, ', ');
 
-            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
-            p.code('word', 'long ', gu('0/C/type long'));
-            p.code('word', 'long ', gu('0/C/type int'));
+            p.code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'));
             p.code('#', 'len', gu('0/C/function param'));
 
             p.code(0, ');');

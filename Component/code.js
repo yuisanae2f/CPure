@@ -4,7 +4,7 @@ HTMLElement.prototype.code = function(type, code, link = '') {
 
     colour["function"] = colour["fun"] = "rgb(222, 222, 0)";
     colour["word"] = colour["reserved"] = "rgb(80,80,222)";
-    colour["preprocessor"] = colour["pre"] = "rgb(140,140,140)";
+    colour["preprocessor"] = colour["pre"] = colour['#'] = "rgb(140,140,140)";
     colour["var"] = "rgb(100,100,255)";
     colour["struct"] = colour["class"] = "rgb(0,150,150)";
     colour["def"] = colour["defined"] = "rgb(200,180,250)";
@@ -12,7 +12,7 @@ HTMLElement.prototype.code = function(type, code, link = '') {
     colour["string"] = colour["str"] = "rgb(200,120,120)";
     colour['num'] = 'rgb(190,255,190)';
     
-    rtn.style.color = colour[type] ?? 'rgb(180,180,180)';
+    rtn.style.color = colour[type] ?? 'rgb(200,200,200)';
     rtn.innerHTML = code;
     
     switch(link) {

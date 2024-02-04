@@ -224,9 +224,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             p.code('pre', 'key', gu('0/C/function param'));
             p.code('', ', ');
 
-            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
-            p.code('word', 'long ', gu('0/C/type long/long'));
-            p.code('word', 'long ', gu('0/C/type long/int'));
+            p.code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
             p.code('pre', 'kLen', gu('0/C/function param'));
             p.code('', ', ');
 
@@ -235,9 +233,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             p.code('pre', 'val', gu('0/C/function param'));
             p.code('', ', ');
 
-            p.code('word', 'unsigned ', gu('0/C/type unsigned'));
-            p.code('word', 'long ', gu('0/C/type long/long'));
-            p.code('word', 'long ', gu('0/C/type long/int'));
+            p.code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'));
             p.code('pre', 'vLen', gu('0/C/function param'));
 
             p.code('', ');');
@@ -319,7 +315,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             p.code('class', 'ae2f_Dynamic ', getURL('Container/Dynamic'));
             p.code('pre', 'p2', gu('0/C/function param'));
             p.code('', ', ');
-            p.code('word', 'char ', gu('0/C/type char'));
+            p.code('class', 'uint8_t ', gu('0/C/h/stdint uint8_t'));
             p.code('pre', 'where', gu('0/C/function param'));
             p.code('', ');');
 
@@ -350,7 +346,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             p.code('', '* ', gu('0/C/type *'));
             p.code('pre', '_this', gu('0/C/function param'));
             p.code('', ', ');
-            p.code('word', 'char ', gu('0/C/type char'));
+            p.code('class', 'uint8_t ', gu('0/C/h/stdint uint8_t'));
             p.code('pre', 'where', gu('0/C/function param'));
             p.code('', ');');
         })(p.box('declares'))
@@ -392,7 +388,7 @@ docs['Container/Pair'] = function(lang = args()[0], nil = 'TRANSLATED_NOT') {
             p.code('pre', 'val', gu('0/C/function param'));
             p.code(0, ', ');
 
-            p.code('word', 'char ', gu('0/C/type char'));
+            p.code('class', 'uint8_t ', gu('0/C/h/stdint uint8_t'));
             p.code('pre', 'where', gu('0/C/function param'));
 
             p.code(0, ');');

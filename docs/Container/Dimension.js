@@ -3,10 +3,9 @@ include('Component/code.js');
 
 docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
     const 
-    board = document.getElementById("board");
+    board = document.getElementById("board"),
+    gu = (th) => `https://yuisanae2f.github.io/YuiSanae2f/${args()[1] == '1' ? "index" : 'dark'}.html?${btoa(`${args()[0]} ${args()[1]} ${th}`)}`;
     let c = {}, fun = {}, p;
-
-    const gu = (th) => `https://yuisanae2f.github.io/YuiSanae2f/${args()[1] == '1' ? "index" : 'dark'}.html?${btoa(`${args()[0]} ${args()[1]} ${th}`)}`;
 
     fun['_'] = () => {
         p = board.tent('Dimension', 'div');
@@ -38,15 +37,13 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
                 .code(0, ';<br/>');
 
                 p
-                .code('word', 'unsigned ', gu('0/C/type unsigned'))
-                .code('word', 'long ', gu('0/C/type long'))
-                .code('word', 'long ', gu('0/C/type int'))
+                .code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
                 .code(0, 'depth', gu('0/C/struct member'));
 
                 p.code(0, ';<br/>');
 
                 p
-                .code('word', 'char ', gu('0/C/type char'))
+                .code('class', 'uint8_t ', gu('0/C/h/stdint uint8_t'))
                 .code(0, 'end', gu('0/C/struct member'));
 
                 p.code(0, ';<br/>');
@@ -144,17 +141,13 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p.code(0, ', ');
 
             p
-            .code('word', 'unsigned ', gu('0/C/type unsigned'))
-            .code('word', 'long ', gu('0/C/type long'))
-            .code('word', 'long ', gu('0/C/type int'))
+            .code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
             .code('#', 'depth', gu('0/C/function param'));
 
             p.code(0, ', ');
 
             p
-            .code('word', 'unsigned ', gu('0/C/type unsigned'))
-            .code('word', 'long ', gu('0/C/type long'))
-            .code('word', 'long', gu('0/C/type int'))
+            .code('class', 'uint64_t', gu('0/C/h/stdint uint64_t'))
             .code(0, '* ', gu('0/C/type *'))
             .code('#', 'lengthArray', gu('0/C/function param'));
 
@@ -233,17 +226,13 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p.code(0, ', ');
 
             p
-            .code('word', 'unsigned ', gu('0/C/type unsigned'))
-            .code('word', 'long ', gu('0/C/type long'))
-            .code('word', 'long ', gu('0/C/type int'))
+            .code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
             .code('#', 'depth', gu('0/C/function param'));
 
             p.code(0, ', ');
 
             p
-            .code('word', 'unsigned ', gu('0/C/type unsigned'))
-            .code('word', 'long ', gu('0/C/type long'))
-            .code('word', 'long', gu('0/C/type int'))
+            .code('class', 'uint64_t', gu('0/C/h/stdint uint64_t'))
             .code(0, '* ', gu('0/C/type *'))
             .code('#', 'posArray', gu('0/C/function param'));
 
@@ -287,9 +276,7 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p.code(0, ', ');
 
             p
-            .code('word', 'unsigned ', gu('0/C/type unsigned'))
-            .code('word', 'long ', gu('0/C/type long'))
-            .code('word', 'long ', gu('0/C/type int'))
+            .code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
             .code('#', 'length', gu('0/C/function param'));
 
             p.code(0, ');');
@@ -331,9 +318,7 @@ docs['Container/Dimension'] = (lang = args()[0], nil = 'TRANSLATED_NOT') => {
             p.code(0, ', ');
 
             p
-            .code('word', 'unsigned ', gu('0/C/type unsigned'))
-            .code('word', 'long ', gu('0/C/type long'))
-            .code('word', 'long ', gu('0/C/type int'))
+            .code('class', 'uint64_t ', gu('0/C/h/stdint uint64_t'))
             .code('#', 'length', gu('0/C/function param'));
 
             p.code(0, ');');
