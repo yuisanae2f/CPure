@@ -15,18 +15,57 @@
 #define AE2F __declspec(dllimport)
 #endif // !AE2F
 
+#include <stdint.h>
+
 AE2F_CPP_PREFIX AE2F struct ae2f_Dice {
-    unsigned long mt[624];
-    int mti;
+    uint32_t mt[624];
+    int32_t mti;
 };
 
-AE2F_CPP_PREFIX AE2F struct ae2f_Dice* ae2f_Dice(struct ae2f_Dice* _this, unsigned long s);
-AE2F_CPP_PREFIX AE2F struct ae2f_Dice* ae2f_Dice_(struct ae2f_Dice* _this, unsigned long* seed, int len);
-AE2F_CPP_PREFIX AE2F unsigned long ae2f_Dice_int32(struct ae2f_Dice* _this);
-AE2F_CPP_PREFIX AE2F long ae2f_Dice_int31(struct ae2f_Dice* _this);
-AE2F_CPP_PREFIX AE2F double ae2f_Dice_real(struct ae2f_Dice* _this);
-AE2F_CPP_PREFIX AE2F double ae2f_Dice_real_(struct ae2f_Dice* _this);
-AE2F_CPP_PREFIX AE2F double ae2f_Dice_real_2(struct ae2f_Dice* _this);
-AE2F_CPP_PREFIX AE2F double ae2f_Dice_res53(struct ae2f_Dice* _this);
+/// <param name="a">: dice</param>
+/// <param name="b">: seed</param>
+AE2F_CPP_PREFIX AE2F struct ae2f_Dice* ae2f_Dice(
+    struct ae2f_Dice* a,    // dice
+    uint32_t b         // seed
+);
+
+/// <param name="a">: dice</param>
+/// <param name="b">: seed array</param>
+/// <param name="c">: seed array length</param>
+AE2F_CPP_PREFIX AE2F struct ae2f_Dice* ae2f_Dice_(
+    struct ae2f_Dice* a,    // dice
+    uint32_t* b,       // seed array
+    int32_t c                   // seed array length
+);
+
+/// <param name="a">: dice</param>
+AE2F_CPP_PREFIX AE2F uint32_t ae2f_Dice_int32(
+    struct ae2f_Dice* a // dice
+);
+
+/// <param name="a">: dice</param>
+AE2F_CPP_PREFIX AE2F int32_t ae2f_Dice_int31(
+    struct ae2f_Dice* a // dice
+);
+
+/// <param name="a">: dice</param>
+AE2F_CPP_PREFIX AE2F double ae2f_Dice_real(
+    struct ae2f_Dice* a // dice
+);
+
+/// <param name="a">: dice</param>
+AE2F_CPP_PREFIX AE2F double ae2f_Dice_real_(
+    struct ae2f_Dice* a // dice
+);
+
+/// <param name="a">: dice</param>
+AE2F_CPP_PREFIX AE2F double ae2f_Dice_real_2(
+    struct ae2f_Dice* a // dice
+);
+
+/// <param name="a">: dice</param>
+AE2F_CPP_PREFIX AE2F double ae2f_Dice_res53(
+    struct ae2f_Dice* a // dice
+);
 
 #endif // !AE2F_DICE_PLAIN

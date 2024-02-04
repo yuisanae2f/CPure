@@ -36,45 +36,103 @@ namespace ae2f {
 	protected:
 		struct ae2f_Dynamic* p;
 	public:
+
 		AE2F void* raw();
 
-		AE2F getter(struct ae2f_Dynamic* p);
-		AE2F int8_t weigh(Container::Linked another);
-		AE2F int8_t weigh(Container::Linked* another);
-		AE2F uint64_t puts(Container::Linked, char fitsToThis);
-		AE2F uint64_t puts(Container::Linked*, char fitsToThis);
+		/// <param name="a">: pointer</param>
+		AE2F getter(
+			struct ae2f_Dynamic* a	// pointer
+		);
 
+		/// <param name="a">: value to be compared</param>
+		AE2F int8_t weigh(
+			Container::Linked a		// value to compare
+		);
+
+		/// <param name="a">: value to compare</param>
+		AE2F int8_t weigh(
+			Container::Linked* a	// value to compare
+		);
+
+		/// <param name="a">: value to be inserted</param>
+		/// <param name="b">: length selector</param>
+		AE2F uint64_t puts(
+			Container::Linked a,	// value to be inserted
+			char b					// length selector
+		);
+
+		/// <param name="a">: value to be inserted</param>
+		/// <param name="b">: length selector</param>
+		AE2F uint64_t puts(
+			Container::Linked* a,	// value to be inserted
+			char b					// length selector
+		);
+
+		/// <typeparam name="p">: pointer type</typeparam>
 		template<typename p> p* point() { return (p*)this->p->c.raw; }
-		template<typename p> p& at(uint64_t idx) {
-			switch (this->p->len < idx * sizeof(p)) {
-			case 0: return this->point<p>()[idx];
+
+		/// <typeparam name="p">: value type</typeparam>
+		/// <param name="a">: index</param>
+		template<typename p>	// value type
+		p& at(
+			uint64_t a			// index
+		) {
+			switch (this->p->len < a * sizeof(p)) {
+			case 0: return this->point<p>()[a];
 			case 1: return *this->point<p>();
 			}
 		}
 		AE2F uint64_t len();
-		template<typename p = char> uint64_t count() { return this->p->len / sizeof(p); }
+
+		/// <typeparam name="p">: counter type</typeparam>
+		template<typename p = char>	// counter type
+		uint64_t count() { return this->p->len / sizeof(p); }
 	};
 	
 	class fun<Container::Dynamic>::setter : public fun<Container::Dynamic>::getter {
 	protected:
-		AE2F setter& _re(void* arr, uint64_t len);
+		/// <param name="a">: container</param>
+		/// <param name="b">: container length</param>
+		AE2F setter& re(
+			void* a,		// container
+			uint64_t b		// container length
+		);
 	public:
-		AE2F setter(struct ae2f_Dynamic* p);
-		AE2F setter& re(uint64_t len);
 
-		
-		template<typename v>
-		setter& re(v arr, uint64_t len) {
+		/// <param name="a">: container old</param>
+		AE2F setter(
+			struct ae2f_Dynamic* a	// container old
+		);
+
+		/// <param name="a">: new length</param>
+		AE2F setter& re(
+			uint64_t a	// new length
+		);
+
+		/// <typeparam name="v">: array type</typeparam>
+		/// <param name="a">: pointer(array)</param>
+		/// <param name="b">: pointer length</param>
+		template<typename v>	// array type
+		setter& re(
+			v a,				// pointer(array)
+			uint64_t b			// pointer length
+		) {
 			static_assert(std::is_pointer<v>::value, "Dynamic setter re: arr must be a pointer");
-			return this->_re((void*)arr, len);
+			return this->re((void*)a, b);
 		}
 
-		template<typename v>
-		setter& re(std::initializer_list<v> l) {
-			return re(l.begin(), l.size() * sizeof(v));
-		}
 
-		AE2F setter& re(std::string s);
+		/// <typeparam name="v">: array type</typeparam>
+		/// <param name="a">: initialiser array</param>
+		template<typename v>			// array type
+		setter& re(
+			std::initializer_list<v> a	// initialiser array
+		) { return re(a.begin(), a.size() * sizeof(v)); }
+
+		/// <param name="a">: string</param>
+		AE2F setter& re(
+			std::string a	// string
+		);
 
 		AE2F fun<Container::Dynamic>::starter free();
 	};
@@ -82,30 +140,81 @@ namespace ae2f {
 	class fun<Container::Dynamic>::starter {
 		struct ae2f_Dynamic* p;
 	public:
-		AE2F starter(struct ae2f_Dynamic* p);
-		
-		AE2F setter alloc(uint64_t len);
 
-		AE2F setter alloc(void* arr, uint64_t len);
+		/// <param name="a">: pointer</param>
+		AE2F starter(
+			struct ae2f_Dynamic* a	// pointer
+		);
 
-		AE2F setter copy(getter src);
-		AE2F setter copy(getter* src);
-		AE2F setter copy(struct ae2f_Dynamic src);
+		/// <param name="len">: length</param>
+		AE2F setter alloc(
+			uint64_t a		// length
+		);
 
-		template<typename v>
-		setter alloc(v arr, uint64_t len) {
+		/// <param name="a">: array</param>
+		/// <param name="b">: array length</param>
+		/// <returns></returns>
+		AE2F setter alloc(
+			void* a,		// array
+			uint64_t b		// array length
+		);
+
+		/// <param name="a">: source</param>
+		AE2F setter copy(
+			getter a		// source
+		);
+
+		/// <param name="a">: source pointer</param>
+		AE2F setter copy(
+			getter* a		// source pointer
+		);
+
+		/// <param name="a">: source</param>
+		AE2F setter copy(
+			struct ae2f_Dynamic a	// source
+		);
+
+		/// <param name="a">: source ptr</param>
+		AE2F setter copy(
+			struct ae2f_Dynamic* a	// source ptr
+		);
+
+		/// <typeparam name="v">: array type</typeparam>
+		/// <param name="a">: array</param>
+		/// <param name="b">: array length</param>
+		template<typename v>	// array type
+		setter alloc(
+			v a,		// array
+			uint64_t b	// array length
+		) {
 			static_assert(std::is_pointer<v>::value, "Dynamic starter alloc: arr must be a pointer");
-			return this->alloc((void*)arr, len);
+			return this->alloc((void*)a, b);
 		}
 
-		AE2F getter link(void* arr, uint64_t len);
+		/// <param name="a">: container</param>
+		/// <param name="b">: container length</param>
+		AE2F getter link(
+			void* a,	// container
+			uint64_t b	// container length
+		);
 
-		template<typename v>
-		getter link(v arr, uint64_t len) {
+		/// <typeparam name="v">: array type</typeparam>
+		/// <param name="a">: array pointer</param>
+		/// <param name="b">: array length</param>
+		template<typename v>	// array type
+		getter link(
+			v a,				// array pointer
+			uint64_t b			// array length
+		) {
 			static_assert(std::is_pointer<v>::value, "Dynamic starter link: arr must be a pointer");
 
-			this->p->c.raw = (void*)arr;
-			this->p->len = len;
+			switch ((uint64_t)a) {
+			case 0: throw 3;
+			default: break;
+			}
+
+			this->p->c.raw = (void*)a;
+			this->p->len = b;
 
 			return this->p;
 		}
@@ -116,18 +225,45 @@ namespace ae2f {
 		protected:
 			struct ae2f_Dynamic obj;
 		public:
-			AE2F Dynamic(uint64_t len);
-			AE2F Dynamic(std::string s);
-			AE2F Dynamic(getter g);
-			AE2F Dynamic(getter* g);
 
-			template<typename v> Dynamic(v arr, uint64_t len) : setter(&this->obj){
-				fun<Dynamic>::starter(&obj).alloc(arr, len);
+			/// <param name="a">: length</param>
+			AE2F Dynamic(
+				uint64_t a	// length
+			);
+
+			/// <param name="a">: string</param>
+			AE2F Dynamic(
+				std::string a	// string
+			);
+
+			/// <param name="a">: getter</param>
+			AE2F Dynamic(
+				getter a	// getter
+			);
+
+			/// <param name="a">: getter pointer</param>
+			AE2F Dynamic(
+				getter* a	// getter
+			);
+
+			/// <typeparam name="v">: array pointer type</typeparam>
+			/// <param name="a">: array</param>
+			/// <param name="b">: length</param>
+			template<typename v>	// array pointer type
+			Dynamic(
+				v a,		// array
+				uint64_t b	// length
+			) : setter(&this->obj){
+				fun<Dynamic>::starter(&obj).alloc(a, b);
 			}
 
-			template<typename v>
-			Dynamic(std::initializer_list<v> l) : setter(&this->obj) {
-				fun<Dynamic>::starter(&obj).alloc(l.begin(), l.size() * sizeof(v));
+			/// <typeparam name="v">: array type</typeparam>
+			/// <param name="a">: list to initialise</param>
+			template<typename v>			// array type
+			Dynamic(
+				std::initializer_list<v> a	// list to initialise
+			) : setter(&this->obj) {
+				fun<Dynamic>::starter(&obj).alloc(a.begin(), a.size() * sizeof(v));
 			}
 
 			AE2F ~Dynamic();
@@ -137,21 +273,46 @@ namespace ae2f {
 		protected:
 			struct ae2f_Dynamic obj;
 		public:
-			template<typename v> Linked(v arr, uint64_t len) : fun<fun<Dynamic>::getter>(&this->obj){
-				fun<Dynamic>::starter(&obj).link(arr, len);
+
+			/// <typeparam name="v">: array pointer type</typeparam>
+			/// <param name="a">: array</param>
+			/// <param name="b">: length</param>
+			template<typename v>	// array pointer type
+			Linked(
+				v a,		// array
+				uint64_t b	// length
+			) : fun<Dynamic>::getter(&this->obj){
+				fun<Dynamic>::starter(&obj).link(a, b);
 			}
 
-			template<typename v>
-			Linked(std::initializer_list<v>& l) : fun<fun<Dynamic>::getter>(&this->obj) {
-				fun<Container::Dynamic>::starter(&obj).link(l.begin(), l.size() * sizeof(v));
+			/// <typeparam name="v">: array pointer type</typeparam>
+			/// <param name="a">: array</param>
+			template<typename v>	// array pointer type
+			Linked(
+				std::initializer_list<v>& a	// array
+			) : fun<Dynamic>::getter(&this->obj) {
+				fun<Container::Dynamic>::starter(&obj).link(a.begin(), a.size() * sizeof(v));
 			}
 
-			AE2F Linked(std::string& s);
+			/// <param name="a">: string</param>
+			AE2F Linked(
+				std::string& a	// string
+			);
 
-			AE2F Linked(fun<Container::Dynamic>::getter g);
-			AE2F Linked(fun<Container::Dynamic>::getter* g);
+			/// <param name="a">: getter</param>
+			AE2F Linked(
+				fun<Container::Dynamic>::getter a	// getter
+			);
 
-			AE2F Linked(struct ae2f_Dynamic origin);
+			/// <param name="a">: getter</param>
+			AE2F Linked(
+				fun<Container::Dynamic>::getter* a	// getter
+			);
+
+			/// <param name="a">: value source</param>
+			AE2F Linked(
+				struct ae2f_Dynamic a	// value source
+			);
 		};
 	}
 }

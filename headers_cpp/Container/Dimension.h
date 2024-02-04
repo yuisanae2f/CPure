@@ -18,48 +18,109 @@ namespace ae2f {
 		class getter;
 		class setter;
 		class starter;
-		class egg;
 	};
 
 	class fun<Container::Dimension>::getter {
 	protected:
 		struct ae2f_Dimension* p;
-		AE2F getter(struct ae2f_Dimension* p);
+
+
+		/// <param name="a">: pointer</param>
+		AE2F getter(
+			struct ae2f_Dimension* a	// pointer
+		);
+
 	public:
-		AE2F fun<Container::Dynamic>::setter operator[](std::initializer_list<uint64_t> idx);
+
+		/// <param name="a">: position array</param>
+		AE2F fun<Container::Dynamic>::setter operator[](
+			std::initializer_list<uint64_t> a	// position array
+		);
 		AE2F void* raw();
 	};
 
 	class fun<Container::Dimension>::setter :
 		public fun<Container::Dimension>::getter {
 	protected:
-		AE2F fun<Container::Dimension>::setter point(uint64_t depth, uint64_t* posArray);
-		AE2F fun<Container::Dimension>::setter& setDepth(uint64_t dep);
+		
+		/// <param name="a">: position array length</param>
+		/// <param name="b">: position array</param>
+		AE2F fun<Container::Dimension>::setter point(
+			uint64_t a,		// position array length
+			uint64_t* b		// position array
+		);
+
+		/// <param name="a">: new depth</param>
+		/// <returns></returns>
+		AE2F fun<Container::Dimension>::setter& setDepth(
+			uint64_t a	// new depth
+		);
 
 	public:
 		AE2F fun<Container::Dimension>::starter free();
-		AE2F setter(struct ae2f_Dimension* p);
+
+		/// <param name="a">: pointer</param>
+		AE2F setter(
+			struct ae2f_Dimension* a	// pointer
+		);
 	};
 
 	class fun<Container::Dimension>::starter :
 		private fun<Container::Dimension>::setter {
 	public:
-		AE2F starter(struct ae2f_Dimension* p);
-		AE2F fun<Container::Dimension>::setter make(uint64_t depth, uint64_t* lengthArray);
-		AE2F fun<Container::Dimension>::setter copy(fun<Container::Dimension>::getter g);
-		AE2F fun<Container::Dimension>::setter copy(fun<Container::Dimension>::getter* g);
+		/// <param name="a">: pointer</param>
+		AE2F starter(
+			struct ae2f_Dimension* a	// pointer
+		);
+
+		/// <param name="a">: length array length </param>
+		/// <param name="b">: length array</param>
+		AE2F fun<Container::Dimension>::setter make(
+			uint64_t a,	// length array length 
+			uint64_t* b	// length array
+		);
+
+		/// <param name="a">: getter</param>
+		AE2F fun<Container::Dimension>::setter copy(
+			fun<Container::Dimension>::getter a	// getter
+		);
+		
+		/// <param name="a">: pointer for getter</param>
+		AE2F fun<Container::Dimension>::setter copy(
+			fun<Container::Dimension>::getter* a	// pointer for getter
+		);
 	};
 
 	namespace Container {
 		class Dimension : public fun<Dimension>::setter {
 		protected: struct ae2f_Dimension obj;
 		public:
-			AE2F Dimension(uint64_t depth, uint64_t* lengthArray);
-			AE2F Dimension(Linked lArray);
-			AE2F Dimension(std::initializer_list<uint64_t> a);
 
-			AE2F Dimension(fun<Container::Dimension>::getter g);
-			AE2F Dimension(fun<Container::Dimension>::getter* g);
+			/// <param name="a">: depth</param>
+			/// <param name="b">: length array</param>
+			AE2F Dimension( // __init__
+				uint64_t a,	// depth
+				uint64_t* b	// length array
+			);
+
+			/// <param name="a">: length array</param>
+			AE2F Dimension(
+				Linked a	// length array
+			);
+			/// <param name="a">: length array</param>
+			AE2F Dimension(
+				std::initializer_list<uint64_t> a	// length array
+			);
+
+			/// <param name="a">: source</param>
+			AE2F Dimension(
+				fun<Container::Dimension>::getter a	// source
+			);
+
+			/// <param name="a">: source</param>
+			AE2F Dimension(
+				fun<Container::Dimension>::getter* a	// source
+			);
 
 			AE2F ~Dimension();
 		};

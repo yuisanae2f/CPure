@@ -7,5 +7,4 @@
 #endif // AE2F_PATH_C
 
 #include "Dice/Dice.h"
-#include "Dice/Managed.h"
 #endif // !AE2F_DICE

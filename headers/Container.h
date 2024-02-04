@@ -14,6 +14,4 @@
 #include "Container/Context.h"
 #include "Container/Dimension.h"
 
-#include "Container/File.h"
-
 #endif // !AE2F_CONTAINER

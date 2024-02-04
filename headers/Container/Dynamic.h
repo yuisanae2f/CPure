@@ -13,19 +13,78 @@
 #include <stdlib.h>
 #endif // !_INC_STDLIB
 
-struct ae2f_Dynamic {
+typedef struct ae2f_Dynamic {
 	union ae2f_Unit c;
 	uint64_t len;
-};
+}* ptr_ae2f_Dynamic;
 
-AE2F_CPP_PREFIX AE2F struct ae2f_Dynamic* ae2f_Dynamic(struct ae2f_Dynamic* _this, uint64_t len);
-AE2F_CPP_PREFIX AE2F struct ae2f_Dynamic* ae2f_Dynamic_(struct ae2f_Dynamic* _this, void* val, uint64_t len);
-AE2F_CPP_PREFIX AE2F struct ae2f_Dynamic* ae2f_Dynamic_copy(struct ae2f_Dynamic* _this, struct ae2f_Dynamic* pos);
-AE2F_CPP_PREFIX AE2F struct ae2f_Dynamic* ae2f_Dynamic_re(struct ae2f_Dynamic* _this, uint64_t len);
-AE2F_CPP_PREFIX AE2F struct ae2f_Dynamic* ae2f_Dynamic_re_(struct ae2f_Dynamic* _this, void* arr, uint64_t len);
-AE2F_CPP_PREFIX AE2F struct ae2f_Dynamic* ae2f_Dynamic_free(struct ae2f_Dynamic* _this);
-AE2F_CPP_PREFIX AE2F union ae2f_Unit ae2f_Dynamic_find(struct ae2f_Dynamic* _this, struct ae2f_Dynamic* value, uint64_t toIgnore);
-AE2F_CPP_PREFIX AE2F int8_t ae2f_Dynamic_weigh(struct ae2f_Dynamic* a, struct ae2f_Dynamic* b);
-AE2F_CPP_PREFIX AE2F uint64_t ae2f_Dynamic_puts(struct ae2f_Dynamic* _this, struct ae2f_Dynamic* another, char fitToThis);
+/// <param name="a">: memory pointer</param>
+/// <param name="b">: new memory length</param>
+AE2F_CPP_PREFIX AE2F ptr_ae2f_Dynamic ae2f_Dynamic(
+	ptr_ae2f_Dynamic a,	// memory pointer
+	uint64_t b				// new memory length
+);
+
+/// <param name="a">: memory pointer</param>
+/// <param name="b">: memory source</param>
+/// <param name="c">: memory source length</param>
+AE2F_CPP_PREFIX AE2F ptr_ae2f_Dynamic ae2f_Dynamic_(
+	ptr_ae2f_Dynamic a,	// memory pointer
+	void* b,				// memory source
+	uint64_t c				// memory source length
+);
+
+/// <param name="a">: memory source</param>
+/// <param name="b">: destination</param>
+AE2F_CPP_PREFIX AE2F ptr_ae2f_Dynamic ae2f_Dynamic_copy(
+	ptr_ae2f_Dynamic a,	// memory source
+	ptr_ae2f_Dynamic b	// destination
+);
+
+/// <param name="a">: existing memory</param>
+/// <param name="b">: new memory length</param>
+AE2F_CPP_PREFIX AE2F ptr_ae2f_Dynamic ae2f_Dynamic_re(
+	ptr_ae2f_Dynamic a,	// existing memory
+	uint64_t b				// new memory length
+);
+
+/// <param name="a">: exeisting memory</param>
+/// <param name="b">: memory source</param>
+/// <param name="c">: memory source length</param>
+AE2F_CPP_PREFIX AE2F ptr_ae2f_Dynamic ae2f_Dynamic_re_(
+	ptr_ae2f_Dynamic a,	// exeisting memory
+	void* b,				// memory source
+	uint64_t c				// memory source length
+);
+
+/// <param name="a">: memory to be freed</param>
+AE2F_CPP_PREFIX AE2F ptr_ae2f_Dynamic ae2f_Dynamic_free(
+	ptr_ae2f_Dynamic a	// memory to be freed
+);
+
+/// <param name="a">: value source</param>
+/// <param name="b">: value wanted</param>
+/// <param name="c">: count to ignore</param>
+AE2F_CPP_PREFIX AE2F union ae2f_Unit ae2f_Dynamic_find(
+	ptr_ae2f_Dynamic a,	// value source
+	ptr_ae2f_Dynamic b,	// value wanted
+	uint64_t c				// count to ignore
+);
+
+/// <param name="a">: value compared left</param>
+/// <param name="b">: value compared right</param>
+AE2F_CPP_PREFIX AE2F int8_t ae2f_Dynamic_weigh(
+	ptr_ae2f_Dynamic a,	// value compared left
+	ptr_ae2f_Dynamic b	// value compared right
+);
+
+/// <param name="a">: memory buffer</param>
+/// <param name="b">: source</param>
+/// <param name="c">: length selector</param>
+AE2F_CPP_PREFIX AE2F uint64_t ae2f_Dynamic_puts(
+	ptr_ae2f_Dynamic a,	// memory buffer
+	ptr_ae2f_Dynamic b,	// source
+	uint8_t c			// length selector
+);
 #endif // !AE2F_CONTAINER_ARRAY
 #endif // AE2F_UNIT

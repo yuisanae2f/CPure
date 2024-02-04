@@ -5,14 +5,26 @@
 #ifdef AE2F_DYNAMIC
 #define AE2F_CONTEXT
 
-struct ae2f_Context {
+typedef struct ae2f_Context {
 	struct ae2f_Dynamic c;
-	uint64_t len;
-	uint64_t _amp; uint64_t _div;
-};
+	uint64_t len, _amp, _div;
+}* ptr_ae2f_Context;
 
-AE2F_CPP_PREFIX AE2F struct ae2f_Context* ae2f_Context(struct ae2f_Context* _this);
-AE2F_CPP_PREFIX AE2F struct ae2f_Dynamic* ae2f_Context_malloc(struct ae2f_Context* _this, uint64_t len);
-AE2F_CPP_PREFIX AE2F struct ae2f_Context* ae2f_Context_free(struct ae2f_Context* _this);
+/// <param name="a">: container</param>
+AE2F_CPP_PREFIX AE2F struct ae2f_Context* ae2f_Context(
+	struct ae2f_Context* a	// container
+);
+
+/// <param name="a">: container</param>
+/// <param name="b">: length for new memory allocated</param>
+AE2F_CPP_PREFIX AE2F struct ae2f_Dynamic* ae2f_Context_malloc(
+	struct ae2f_Context* a,	// container
+	uint64_t b				// length for new memory allocated
+);
+
+/// <param name="a">: container to be freed</param>
+AE2F_CPP_PREFIX AE2F struct ae2f_Context* ae2f_Context_free(
+	struct ae2f_Context* a	// container to be freed
+);
 #endif // AE2F_DYNAMIC
 #endif // !AE2F_CONTEXT

@@ -27,7 +27,10 @@ namespace ae2f {
 	protected: 
 		struct ae2f_Pair* p;
 	public:
-		AE2F getter(struct ae2f_Pair* p);
+		/// <param name="a">: base ptr</param>
+		AE2F getter(
+			struct ae2f_Pair* a	// base ptr
+		);
 
 		AE2F Container::Linked key();
 		AE2F Container::Linked value();
@@ -40,7 +43,10 @@ namespace ae2f {
 		class _key;
 		class _val;
 
-		AE2F setter(struct ae2f_Pair* p);
+		/// <param name="a">: base ptr</param>
+		AE2F setter(
+			struct ae2f_Pair* a	// base ptr
+		);
 		AE2F starter free();
 
 		AE2F void* raw();
@@ -49,12 +55,22 @@ namespace ae2f {
 		protected:
 			setter* p;
 		public:
-			AE2F el(setter* p);
-
-			AE2F el<tt>& operator()(Container::Linked* v);
-			AE2F el<tt>& operator()(Container::Linked v);
+			/// <param name="a">: base ptr</param>
+			AE2F el(
+				setter* a	// base ptr
+			);
 
 			AE2F Container::Linked operator()();
+
+			/// <param name="a">: setter val ptr</param>
+			AE2F el<tt>& operator()(
+				Container::Linked* a	// setter val ptr
+			);
+
+			/// <param name="a">: setter val ptr</param>
+			AE2F el<tt>& operator()(
+				Container::Linked a	// setter val
+			);
 		};
 
 		AE2F el<_key> key();
@@ -65,12 +81,34 @@ namespace ae2f {
 	protected:
 		struct ae2f_Pair* p;
 	public:
-		AE2F starter(struct ae2f_Pair* p);
-		AE2F setter alloc(Container::Linked key, Container::Linked value);
-		AE2F setter alloc(Container::Linked* key, Container::Linked* value);
+		/// <param name="a">: base ptr</param>
+		AE2F starter(
+			struct ae2f_Pair* a	// base ptr
+		);
 
-		AE2F setter copy(getter tar);
-		AE2F setter copy(getter* tar);
+		/// <param name="a">: key</param>
+		/// <param name="b">: val</param>
+		AE2F setter alloc(
+			Container::Linked a,	// key
+			Container::Linked b		// val
+		);
+
+		/// <param name="a">: key ptr</param>
+		/// <param name="b">: val ptr</param>
+		AE2F setter alloc(
+			Container::Linked* a,	// key ptr
+			Container::Linked* b	// val ptr
+		);
+
+		/// <param name="a">: source</param>
+		AE2F setter copy(
+			getter a	// source
+		);
+
+		/// <param name="a">: source ptr</param>
+		AE2F setter copy(
+			getter* a	// source ptr
+		);
 	};
 
 	namespace Container {
@@ -78,12 +116,41 @@ namespace ae2f {
 		protected:
 			struct ae2f_Pair obj;
 
-		public:			
-			AE2F Pair(Linked key, Linked value);
-			AE2F Pair(Linked* key, Linked* value);
+		public:
+			
+			/// <param name="a">: key</param>
+			/// <param name="b">: val</param>
+			AE2F Pair(
+				Linked a,	// key
+				Linked b	// value
+			);
 
-			AE2F Pair(Linked tar);
-			AE2F Pair(Linked* tar);
+			/// <param name="a">: key ptr</param>
+			/// <param name="b">: val ptr</param>
+			AE2F Pair(
+				Linked* a,	// key ptr
+				Linked* b	// val ptr
+			);
+
+			/// <param name="a">: key</param>
+			AE2F Pair(
+				Linked a	// key
+			);
+
+			/// <param name="a">: key ptr</param>
+			AE2F Pair(
+				Linked* a	// key ptr
+			);
+
+			/// <param name="a">: source</param>
+			AE2F Pair(
+				struct ae2f_Pair a	// source
+			);
+
+			/// <param name="a">: source ptr</param>
+			AE2F Pair(
+				struct ae2f_Pair* a	// source ptr
+			);
 
 			AE2F ~Pair();
 		};
