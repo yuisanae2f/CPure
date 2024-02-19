@@ -9,19 +9,19 @@
 #ifndef AE2F_DYNAMIC
 #define AE2F_DYNAMIC
 
-#ifndef _INC_STDLIB
-#include <stdlib.h>
-#endif // !_INC_STDLIB
-
 typedef struct ae2f_Dynamic {
 	union ae2f_Unit c;
 	uint64_t len;
 }* ptr_ae2f_Dynamic;
 
+#endif // !AE2F_CONTAINER_ARRAY
+
+#ifndef AE2F_DYNAMIC_FUN
+#define AE2F_DYNAMIC_FUN
 /// <param name="a">: memory pointer</param>
 /// <param name="b">: new memory length</param>
 AE2F_CPP_PREFIX AE2F ptr_ae2f_Dynamic ae2f_Dynamic(
-	ptr_ae2f_Dynamic a,	// memory pointer
+	ptr_ae2f_Dynamic a,		// memory pointer
 	uint64_t b				// new memory length
 );
 
@@ -86,5 +86,12 @@ AE2F_CPP_PREFIX AE2F uint64_t ae2f_Dynamic_puts(
 	ptr_ae2f_Dynamic b,	// source
 	uint8_t c			// length selector
 );
-#endif // !AE2F_CONTAINER_ARRAY
+
+/// <param name="a">: a value</param>
+/// <param name="b">: another value</param>
+AE2F_CPP_PREFIX AE2F uint64_t ae2f_Dynamic_countEqual(
+	ptr_ae2f_Dynamic a,
+	ptr_ae2f_Dynamic b
+);
+#endif // !AE2F_DYNAMIC_FUN
 #endif // AE2F_UNIT

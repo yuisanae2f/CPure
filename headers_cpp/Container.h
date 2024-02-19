@@ -5,10 +5,13 @@
 #define AE2F_CPP
 #endif // !AE2F_CPP
 
+#ifndef AE2F_CONTAINER
+#define AE2F_CONTAINER
+#ifdef AE2F_PATH_C
+#pragma comment(lib, AE2F_PATH_C "/Container")
+#endif // AE2F_PATH_C
+#endif // !AE2F_CONTAINER
 
-#ifndef AE2F_IGNORE_MISSINGS
-#include "../headers/Container.h"
-#endif // !AE2F_IGNORE_MISSINGS
 
 #ifdef AE2F_PATH_CPP
 #pragma comment(lib, AE2F_PATH_CPP "/pContainer")
